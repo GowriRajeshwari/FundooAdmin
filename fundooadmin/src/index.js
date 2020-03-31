@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import './Css/Login.css'
 import './Css/Tableadmin.css'
+import './Css/Register.css'
+import './Css/ForgotPassword.css'
+import './Css/ResetPassword.css'
+
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
