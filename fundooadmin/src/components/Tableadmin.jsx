@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { getuser } from "../services/LoginService";
 
 const useStyles =({
   table: {
@@ -34,9 +35,25 @@ const rows = [
 ];
 
 class Tableadmin extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        data : []
+    };
+  }
+
 
   componentDidMount(){
-    
+    getuser().then(response => {
+      // console.log(response.data[0].role);
+     if (response.status === 200) {
+         
+        this.setState({data : response.data});
+        console.log(this.state.data)
+     } else {
+         this.setState({  snackbarmsg: "Login Not Successfull,Make sure email & password is correct", snackbaropen: true });
+     }
+  });
   }
 render(){
   const classes = this.props;
@@ -54,13 +71,14 @@ render(){
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+        {this.state.data.map((data, index) => (
+          // {rows.map((row) => (
+            <TableRow key={index}>
               <TableCell >
-                {row.username}
+                {data.firstName}
               </TableCell>
-              <TableCell >{row.service}</TableCell>
-              <TableCell >{row.role}</TableCell>
+              <TableCell >{data.service}</TableCell>
+              <TableCell >{data.role}</TableCell>
               
             </TableRow>
           ))}

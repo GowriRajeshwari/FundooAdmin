@@ -1,4 +1,5 @@
 import axios from "axios";
+const url = "http://fundoonotes.incubation.bridgelabz.com/api/user";
 export async function login(data) {
   //console.log(process.env);
   console.log(process.env.REACT_APP_URL)
@@ -46,3 +47,15 @@ export async function resetPassword(data,access_token) {
     return error;
   }
 }
+
+//Calling the getuser API using axios
+export async function getuser() {
+  try {
+    const response = await axios.get(url);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+

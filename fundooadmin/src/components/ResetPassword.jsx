@@ -7,7 +7,6 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { resetPassword } from "../services/LoginService";
 import Snackbar from '@material-ui/core/Snackbar';
 import { IconButton } from "@material-ui/core";
-const jwt = require("jsonwebtoken");
 
 
 
@@ -33,19 +32,12 @@ class ResetPassword extends Component {
   }
  Reset(event){
     event.preventDefault();
-        // console.log("login clicked");
-        // let formData = new FormData();
-        // console.log('formaData in registration.jsx ')
-        // console.log(formData)
-        // formData.set('newPassword', this.state.password)
 
         let data = {
           newPassword: this.state.password,
         };
 
         const id = localStorage.getItem("id");
-        const token = jwt.sign({ id }, process.env.REACT_APP_KEY, { expiresIn: "1h" });
-        localStorage.setItem("token", token);
         console.log(data,id);
 
         if (data.password != '') {
