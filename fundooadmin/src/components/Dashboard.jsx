@@ -18,6 +18,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Tableadmin from './Tableadmin'
+import Paper from "@material-ui/core/Paper";
+import TextField from "@material-ui/core/TextField";
+import search from '../assets/search.png';
+import clear from '../assets/clear.png';
 
 
 
@@ -100,7 +104,8 @@ const useStyles = theme => ({
         this.state = {
             open : false,
              setOpen : false,
-             choice:""
+             choice:"",
+             query:''
          
         };
       }
@@ -131,6 +136,10 @@ const useStyles = theme => ({
         // return <TakeaNotes/>
       }
   }
+  queryfunction=async(event)=>{
+     await this.setState({query : event.target.value});
+    //  <Tableadmin query={this.state.query}/>
+  }
 render(){
     const {classes} = this.props;
   return (
@@ -153,8 +162,40 @@ render(){
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-           Keep
+           Fundoo
           </Typography>
+                     <div style={
+                               { height: '60px',
+                                width: '700px',
+                                marginLeft: '100px',
+                                backgroundColor:'#ffffff',
+                                flexDirection: 'row',
+                                display: 'flex',
+                                alignItems: 'center',
+                                borderRadius: '3px',
+                                justifyContent: 'center'
+                            }
+ 
+                                }>
+                              <Paper>
+                                  <div style={{ display : 'flex',justifyContent : 'center',height : '60px',width : '700px',alignItems:'center'}}>
+                                  <img src={search} />
+                                <TextField
+                                // label="Search"
+                                    hintText="Password"
+                                    floatingLabelText="Password"
+                                    id="inputFielddash"
+                                    InputProps={{ disableUnderline: true }}
+                                    style={{ backgroundColor: '#ff00',
+                                     border: 'none', disableUnderline: true,width:'600px' }}
+                                //    helperText={this.state.helperTextpassowrd}
+                                     onChange={this.queryfunction}
+                                />
+                                <img src={clear} id="imgdash" />
+                                  </div>
+                                
+                             </Paper>
+                    </div>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -207,7 +248,7 @@ render(){
       >
         <div className={classes.drawerHeader} />
         <List style={{ maxHeight: '100%', overflow: 'auto', padding: '5px' }} >
-        <Tableadmin/>
+        <Tableadmin query={this.state.query}/>
         </List>
         {this.getcomponents()}
         

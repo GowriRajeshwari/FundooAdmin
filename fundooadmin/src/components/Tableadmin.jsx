@@ -8,6 +8,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { getuser } from "../services/LoginService";
+import Snackbar from '@material-ui/core/Snackbar';
+import { IconButton } from "@material-ui/core";
+
 
 const useStyles =({
   table: {
@@ -26,39 +29,55 @@ function createData(username,service,role) {
   return { username,service,role };
 }
 
-const rows = [
-  createData('Frozen yoghurt', 159 , 4.0),
-  createData('Frozen yoghurt', 159 , 4.0),
-  createData('Frozen yoghurt', 159 , 4.0),
-  createData('Frozen yoghurt', 159 , 4.0),
-  createData('Gingerbread', 49, 3.9),
-];
+function searchigFor(query){
+  return function(x){
+    return x.firstName.toLowerCase().includes(query.toLowerCase())||!query;
+  }
+}
+
+// }
+// const rows = [
+//   createData('Frozen yoghurt', 159 , 4.0),
+//   createData('Frozen yoghurt', 159 , 4.0),
+//   createData('Frozen yoghurt', 159 , 4.0),
+//   createData('Frozen yoghurt', 159 , 4.0),
+//   createData('Gingerbread', 49, 3.9),
+// ];
 
 class Tableadmin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        data : []
+        data : [],
+        snackbaropen: false,
+        snackbarmsg: '',
+        query : this.props.query
     };
   }
 
-
+  handleClose=(event)=> {
+    // event.preventDefault();
+    this.setState({ snackbaropen: false });
+}
   componentDidMount(){
+    
     getuser().then(response => {
-      // console.log(response.data[0].role);
+      console.log(response);
      if (response.status === 200) {
          
         this.setState({data : response.data});
         console.log(this.state.data)
      } else {
-         this.setState({  snackbarmsg: "Login Not Successfull,Make sure email & password is correct", snackbaropen: true });
+         this.setState({  snackbarmsg: "Netwrork is slow", snackbaropen: true });
      }
   });
   }
+ 
 render(){
   const classes = this.props;
   return (
     <div className="tableWidth">
+      <div>{this.state.query}</div>
       <div className="tableCenter">
     <TableContainer component={Paper}>
       <Table className="table" aria-label="simple table">
@@ -71,7 +90,7 @@ render(){
           </TableRow>
         </TableHead>
         <TableBody>
-        {this.state.data.map((data, index) => (
+        {this.state.data.filter(searchigFor(this.props.query)).map((data, index) => (
           // {rows.map((row) => (
             <TableRow key={index}>
               <TableCell >
@@ -86,6 +105,13 @@ render(){
       </Table>
     </TableContainer>
     </div>
+    <Snackbar open={this.state.snackbaropen} autoHideDuration={6000} onClose={this.handleClose}
+                    message={<span>{this.state.snackbarmsg}</span>}
+                    action={[
+                        <IconButton key="close" arial-label="close" color="inherit" onClick={this.handleClose}>
+                            x</IconButton>
+                    ]}>
+                </Snackbar>
     </div>
     
   );
