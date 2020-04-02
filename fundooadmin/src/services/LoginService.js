@@ -47,6 +47,7 @@ export async function resetPassword(data,access_token) {
     return error;
   }
 }
+
 //Calling the getuser API using axios
 export async function getuser() {
   try {
