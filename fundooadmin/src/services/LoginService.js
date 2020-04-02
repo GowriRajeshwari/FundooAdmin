@@ -51,7 +51,7 @@ export async function resetPassword(data,access_token) {
 //Calling the getuser API using axios
 export async function getuser() {
   try {
-    const response = await axios.get(url);
+    const response = await axios.get(process.env.REACT_APP_GETUSER);
     return response;
   } catch (error) {
     console.log(error);

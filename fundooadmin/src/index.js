@@ -7,7 +7,7 @@ import './Css/Tableadmin.css'
 import './Css/Register.css'
 import './Css/ForgotPassword.css'
 import './Css/ResetPassword.css'
-
+import './Css/service.css'
 
 import * as serviceWorker from './serviceWorker';
 

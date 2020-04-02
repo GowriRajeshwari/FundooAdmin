@@ -167,7 +167,7 @@ render(){
                      <div style={
                                { height: '60px',
                                 width: '700px',
-                                marginLeft: '100px',
+                                marginLeft: '200px',
                                 backgroundColor:'#ffffff',
                                 flexDirection: 'row',
                                 display: 'flex',
@@ -181,14 +181,13 @@ render(){
                                   <div style={{ display : 'flex',justifyContent : 'center',height : '60px',width : '700px',alignItems:'center'}}>
                                   <img src={search} />
                                 <TextField
-                                // label="Search"
+                                    // label="Search"
                                     hintText="Password"
-                                    floatingLabelText="Password"
+                                    // floatingLabelText="Password"
                                     id="inputFielddash"
                                     InputProps={{ disableUnderline: true }}
                                     style={{ backgroundColor: '#ff00',
                                      border: 'none', disableUnderline: true,width:'600px' }}
-                                //    helperText={this.state.helperTextpassowrd}
                                      onChange={this.queryfunction}
                                 />
                                 <img src={clear} id="imgdash" />

@@ -8,6 +8,8 @@ import Tableadmin from './components/Tableadmin';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
+import service from './components/service';
+
 
 
 
@@ -20,6 +22,7 @@ function App() {
         <Route path="/Tableadmin"  component={Tableadmin} />
         <Route path="/Register" component={Register} />
         <Route path="/Forgot" component={ForgotPassword} />
+        <Route path="/service" component={service} />
         <Route path="/resetpassword/qjq5ohwD3lU3C21LfQCiTnKlnZHSiqFftBYoxh8QaYGg1sV2V41TOBOoJIH2w7zC" component={ResetPassword} />
 
 

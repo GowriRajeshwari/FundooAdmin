@@ -1,0 +1,131 @@
+.servicecontainer{
+    /* height:573px; */
+    font-size: 28px;
+    color: rgb(228, 86, 86);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    /* background-color: #F8F8F8; */
+    /* padding : 40px; */
+    /* width: 1333px; */
+    /* margin-left : 100px; */
+}
+.containeservice{
+    width:100%;
+    height: 100%
+}
+.serviceroot{
+    /* min-width: 275; */
+    height : 250px;
+    width : 250px;
+    position: relative;
+    z-index: 9;
+    background-color: blue;
+    margin-bottom: 15px;
+    /* padding : 40px; */
+}
+.serviceroot1{
+    /* min-width: 275; */
+    height: 250px;
+    width : 250px;
+    position: relative;
+    z-index: 8;
+    margin-top: -190px;
+    margin-left: 40px;
+    /* padding : 40px; */
+}
+.cardcontent{
+    height: 200px;
+    width : 250px;
+}
+.cardcontent1{
+    height: 200px;
+    width : 250px;
+    display : flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.title1{
+      font-size: 14;
+      width : 250px;
+      height : 250px;
+      display : flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-color: grey;
+    margin-right: 2px;
+
+}
+.title2{
+    font-size: 14;
+    width : 250px;
+    height : 250px;
+    display : flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: yellow;
+    margin-right: 2px;
+
+}
+.twocard{
+    padding : 50px;
+}
+.centercard{
+    display : flex;
+}
+.boldpoint{
+    height : 10px;
+    list-style-type : circle
+}
+.zoom {
+    padding: 50px;
+    /* background-color: green; */
+    transition: transform .2s;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+  }
+  
+  .zoom:hover {
+    -ms-transform: scale(1.15); /* IE 9 */
+    -webkit-transform: scale(1.15); /* Safari 3-8 */
+    transform: scale(1.15); 
+  }
+  .twocardrow{
+      display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width:100%;
+        height: 573px;
+  }
+  .modelmiddel{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.classespaper{
+    position: 'absolute';
+    width: 400px;
+    background-color: white;
+    border: '2px solid #000';
+    /* boxShadow: theme.shadows[5], */
+    /* padding: theme.spacing(2, 4, 3), */
+    padding : 5px;
+    /* height:150px; */
+    display: flex;
+    flex-direction: column;
+   
+}
+.textdash{
+    display: flex;
+    /* flex-direction: row; */
+    /* align-items: center */
+}
+.buttondone{
+    display: flex;
+    justify-content: flex-end;
+}

@@ -86,7 +86,8 @@ class Register extends Component {
             email:"",
             id:"",
             service:"",
-            showCardColor:null
+            showCardColor:null,
+            role:""
         };
     }
 
@@ -114,7 +115,8 @@ class Register extends Component {
             email: this.state.email,
             service: this.state.service,
             password: this.state.password,
-            phoneNumber: this.state.phone
+            phoneNumber: this.state.phone,
+            role:'admin'
         };
         console.log(data);
 

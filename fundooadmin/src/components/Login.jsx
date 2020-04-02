@@ -134,7 +134,7 @@ class Login extends Component {
   register(event){
     event.preventDefault();
     this.props.history.push({
-      pathname: "/Register",
+      pathname: "/service",
     });
 
   }

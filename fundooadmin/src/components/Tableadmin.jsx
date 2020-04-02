@@ -31,7 +31,7 @@ function createData(username,service,role) {
 
 function searchigFor(query){
   return function(x){
-    return x.firstName.toLowerCase().includes(query.toLowerCase())||!query;
+    return x.firstName.toLowerCase().includes(query.toLowerCase())||x.service.toLowerCase().includes(query.toLowerCase())||x.role.toLowerCase().includes(query.toLowerCase())||!query;
   }
 }
 
@@ -77,7 +77,6 @@ render(){
   const classes = this.props;
   return (
     <div className="tableWidth">
-      <div>{this.state.query}</div>
       <div className="tableCenter">
     <TableContainer component={Paper}>
       <Table className="table" aria-label="simple table">
