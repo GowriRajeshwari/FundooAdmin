@@ -46,7 +46,6 @@ export async function resetPassword(data,access_token) {
     console.log(error);
     return error;
   }
-}
 
 //Calling the getuser API using axios
 export async function getuser() {
