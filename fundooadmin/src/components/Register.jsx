@@ -8,7 +8,8 @@ import { IconButton } from "@material-ui/core";
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles =(theme)=> ({
     root: {
@@ -115,8 +116,8 @@ class Register extends Component {
             email: this.state.email,
             service: this.state.service,
             password: this.state.password,
-            phoneNumber: this.state.phone,
-            role:'admin'
+            // phoneNumber: this.state.phone,
+            role:this.state.phone
         };
         console.log(data);
 
@@ -391,7 +392,7 @@ class Register extends Component {
 
                                 
                                 <div className="inputFieldReg">
-                                    <TextField
+                                    {/* <TextField
                                         id="btnReg"
                                         variant="outlined"
                                         label="Phone"
@@ -400,7 +401,16 @@ class Register extends Component {
                                         helperText={this.state.helperTextCountry}
                                         onChange={this.onchangePhone}
                                         // size="small"
-                                    />
+                                    /> */}
+                                     <Select
+                                        labelId="demo-simple-select-label"
+                                        id="btnReg"
+                                        value={this.state.phone}
+                                        onChange={this.onchangePhone}
+                                        >
+                                        <MenuItem value={'admin'}>Admin</MenuItem>
+                                        <MenuItem value={'user'}>User</MenuItem>
+                                        </Select>
                                 </div>
                             </div>
                             <div className="submitButtonReg">
