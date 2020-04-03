@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import FormHelperText from '@material-ui/core/FormHelperText';
 const useStyles =(theme)=> ({
     root: {
       minWidth: 275,
@@ -229,19 +229,19 @@ class Register extends Component {
 
 
           if(this.state.phone != ''){
-            if (/^[0-9]*$/.test(this.state.phone)) {
+          //  if (/^[0-9]*$/.test(this.state.phone)) {
                 this.setState({ phone: this.state.phone ,helperTextCountry: "",
                 error: false })
-              } else {
-                  this.setState({
-                      helperTextCountry: "Enter No only",
-                      error: true,
-                      phone: this.state.phone
-                  })
-              }
+           //   } else {
+            //       this.setState({
+            //           helperTextCountry: "Enter No only",
+            //           error: true,
+            //           phone: this.state.phone
+            //       })
+            //   }
           } else {
             this.setState({
-                helperTextCountry: "Enter No",
+                helperTextCountry: "select one",
                 error: true,
                 phone: this.state.phone
             })
@@ -405,12 +405,15 @@ class Register extends Component {
                                      <Select
                                         labelId="demo-simple-select-label"
                                         id="btnReg"
+                                        variant="outlined"
                                         value={this.state.phone}
                                         onChange={this.onchangePhone}
+                                        error={this.state.helperTextCountry}
                                         >
                                         <MenuItem value={'admin'}>Admin</MenuItem>
                                         <MenuItem value={'user'}>User</MenuItem>
                                         </Select>
+                                        <FormHelperText style={{color : 'red'}}> {this.state.helperTextCountry}</FormHelperText>
                                 </div>
                             </div>
                             <div className="submitButtonReg">
