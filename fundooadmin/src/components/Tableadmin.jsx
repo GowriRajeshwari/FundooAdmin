@@ -58,7 +58,7 @@ class Tableadmin extends Component {
      if (response.status === 200) {
          
         this.setState({data : response.data});
-        console.log(this.state.data)
+        console.log(this.state.data.length)
      } else {
          this.setState({  snackbarmsg: "Netwrork is slow", snackbaropen: true });
      }
@@ -74,7 +74,7 @@ render(){
       <Table className="table" aria-label="simple table">
         <TableHead>
           <TableRow className="TableContainer">
-            <TableCell ><div className="textDesign">Username</div></TableCell>
+            <TableCell ><div className="textDesign">Username - {this.state.data.length}</div></TableCell>
             <TableCell><div className="textDesign">Service</div></TableCell>
             <TableCell><div className="textDesign">Role</div></TableCell>
         
