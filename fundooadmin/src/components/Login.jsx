@@ -79,6 +79,8 @@ class Login extends Component {
       emailse : '',
       snackbaropen: false,
       snackbarmsg: '',
+      service :'',
+      showCardColor :null
     };
   }
   componentWillMount() {
@@ -272,7 +274,7 @@ onchangePassword = event => {
              
               </div>
             </div>
-            <div>
+            <div style={{backgroundColor : '#D3D3D3',height : '400px',display:'flex',justifyContent:'center',alignItems:'center'}}>
             {this.state.showCardColor ?
                             <div className="rowReg">
                             <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
