@@ -105,11 +105,7 @@ class Login extends Component {
   //sign in
   SignIn=async(event)=>{
     event.preventDefault();
-   
-    
     await this.validator();
-    console.log(this.state.error )
-    if(this.state.error == false){
       console.log("login clicked");
       let data = {
         email: this.state.email,
@@ -117,6 +113,7 @@ class Login extends Component {
       };
 
       console.log(data);
+    if( data.email && data.password != ''){
         
       login(data).then(response => {
           console.log(response);
