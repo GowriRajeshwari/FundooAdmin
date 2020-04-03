@@ -223,7 +223,7 @@ onchangePassword = event => {
     this.setState({next:false,email : this.state.emailse})
   }
   render() {
-    const classes = this.props;
+    const {classes} = this.props;
     return (
       <div className="firstcontainer">
         <span class="username"><span>F</span><span>u</span><span>n</span><span>D</span><span>o</span><span>o</span></span>
@@ -274,7 +274,8 @@ onchangePassword = event => {
              
               </div>
             </div>
-            <div style={{backgroundColor : '#D3D3D3',height : '400px',display:'flex',justifyContent:'center',alignItems:'center'}}>
+            <div style={{flexDirection:'column', backgroundColor : '#D3D3D3',height : '400px',display:'flex',justifyContent:'center',alignItems:'center'}}>
+              <div>SERVICE</div>
             {this.state.showCardColor ?
                             <div className="rowReg">
                             <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
