@@ -9,7 +9,9 @@ import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
 import service from './components/service';
-
+// let url = new URL('http://localhost:4200/resetpassword/7V1KXsZZg4jPCD9MCUGrMgMws8o0jyKrBVyJwCAiDwcboEaZcnp6isDHA8tFZXJQ');
+// let searchParams = new URLSearchParams(url.search);
+// console.log(searchParams.get('c'));
 
 
 

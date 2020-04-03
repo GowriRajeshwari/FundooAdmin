@@ -7,10 +7,59 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { login } from "../services/LoginService";
 import Snackbar from '@material-ui/core/Snackbar';
 import { IconButton } from "@material-ui/core";
-
-
+import Card from '@material-ui/core/Card';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 require('dotenv').config();
 
+const useStyles =(theme)=> ({
+  root: {
+    minWidth: 275,
+    position: 'absolute',
+    
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  pos: {
+    marginBottom: 12,
+  },
+  root1: {
+      minWidth: 275,
+    },
+    paper: {
+      position: 'absolute',
+      width: 400,
+      backgroundColor: theme.palette.background.paper,
+      border: '2px solid #000',
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+    },
+    price:{
+      fontSize: 13,
+      fontWeight : 'bold'
+      },advance:{
+          color:'blue'
+      },
+      boldpoint:{
+          height : '10px',
+          listStyleType : 'circle'
+      },
+      title: {
+            fontSize: 13,
+          //   width : '250px',
+          //   height : '250px'
+      
+          },
+          widthheight:{
+              width : '130px',
+              height : '130px',
+              padding : '20px'
+          },
+    
+});
 
 class Login extends Component {
   constructor(props) {
@@ -32,9 +81,22 @@ class Login extends Component {
       snackbarmsg: '',
     };
   }
+  componentWillMount() {
+    // when params sent via url
+    if (this.props.history.location.state) {
+      let params = this.props.history.location.state.service;
+      let registershow = this.props.history.location.state.registershow;
+    if(params == 'advance'){
+      this.setState({ service: params , showCardColor :true ,registershow  : true});
+    }
+    else{
+      this.setState({ service: params , showCardColor :false ,registershow : true});
+    }
+    }
+  }
 
-    //close snackbar
-    handleClose=(event)=> {
+  //close snackbar
+  handleClose=(event)=> {
       // event.preventDefault();
       this.setState({ snackbaropen: false });
   }
@@ -159,12 +221,13 @@ onchangePassword = event => {
     this.setState({next:false,email : this.state.emailse})
   }
   render() {
+    const classes = this.props;
     return (
       <div className="firstcontainer">
         <span class="username"><span>F</span><span>u</span><span>n</span><span>D</span><span>o</span><span>o</span></span>
         <div className="loginstyle">{this.state.login}</div>
 
-       
+       {this.state.registershow ? 
         <Paper id="rootpaper">
         
           <div className="container">
@@ -185,7 +248,6 @@ onchangePassword = event => {
 
                 <div className="inputField">
                   <TextField
-                    // error={this.state.red}
                     error={this.state.helperTextpassowrd }
                    id="btn"
                    variant="outlined"
@@ -207,21 +269,210 @@ onchangePassword = event => {
                    </Button>
                 </div>
 
-                {/* <div className="submitButton">
-                  <Button id="subbtn" onClick={e => this.Next(e)}>
-                    NEXT
-                </Button>
-                </div> */}
-                {/* <div className="belowlogin">
-                  <Button id="forgotstyle" onClick={e => this.resetpassword(e)}>
-                  Create account(RP)
-                   </Button>
-                </div> */}
+             
               </div>
             </div>
-          </div>
-        </Paper>
+            <div>
+            {this.state.showCardColor ?
+                            <div className="rowReg">
+                            <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
+                                     >
+                 
+                                   <div className="servicerootR">
+                                   <Card>
+                                   <div className={classes.widthheight}>
+                                <Typography className={classes.price} color="textSecondary" gutterBottom>
+                                Price : $49 per
+                                </Typography>
+                                <Typography className={classes.price} color="textSecondary" gutterBottom>
+                                month
+                                </Typography>
+                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
+                                advance
+                                </Typography>
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                . $49/month
+                                </Typography>
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                . Ability to ad  only title and description
+                                </Typography>
+                                </div>
+                                        </Card>
+                               
+                                      </div>
+                                    <div  className="serviceroot1R">
+                                        <Card>
+                                            <Typography  className="title1Radvance">
+                                            Selected
+                                            </Typography>
+                                            </Card>
+                                    
+                                    </div>
+                             </div> 
+                
+                              </div>
+                              <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
+                                >
+                 
+                                 <div className="servicerootR">
+                                 <Card>
+                                 <div className={classes.widthheight}>
+                                <Typography className={classes.price} color="textSecondary" gutterBottom>
+                                Price : $49 per
+                                </Typography>
+                                <Typography className={classes.price} color="textSecondary" gutterBottom>
+                                month
+                                </Typography>
+                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
+                                basic
+                                </Typography>
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                . $49/month
+                                </Typography>
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                . Ability to ad  only title and description
+                                </Typography>
+                                </div>
+                                        </Card>
+                               
+                                 </div>
+                                    <div  className="serviceroot1R">
+                                        <Card>
+                                            <Typography  className="title1R">
+                                            ADD TO CART
+                                            </Typography>
+                                            </Card>
+                                    
+                                    </div>
+                             </div> 
+                
+                              </div>
+                            </div>
+                            :     <div className="rowReg">
+                            <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
+                                     >
+                 
+                                   <div className="servicerootR">
+                                   <Card>
+                                   <div className={classes.widthheight}>
+                                <Typography className={classes.price} color="textSecondary" gutterBottom>
+                                Price : $49 per
+                                </Typography>
+                                <Typography className={classes.price} color="textSecondary" gutterBottom>
+                                month
+                                </Typography>
+                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
+                                advance
+                                </Typography>
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                . $49/month
+                                </Typography>
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                . Ability to ad  only title and description
+                                </Typography>
+                                </div>
+                                        </Card>
+                               
+                                      </div>
+                                    <div  className="serviceroot1R">
+                                        <Card>
+                                            <Typography  className="title1R">
+                                            ADD TO CART
+                                            </Typography>
+                                            </Card>
+                                    
+                                    </div>
+                             </div> 
+                
+                              </div>
+                              <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
+                                >
+                 
+                                 <div className="servicerootR">
+                                 <Card>
+                                 <div className={classes.widthheight}>
+                                <Typography className={classes.price} color="textSecondary" gutterBottom>
+                                Price : $49 per
+                                </Typography>
+                                <Typography className={classes.price} color="textSecondary" gutterBottom>
+                                month
+                                </Typography>
+                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
+                                basic
+                                </Typography>
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                . $49/month
+                                </Typography>
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                . Ability to ad  only title and description
+                                </Typography>
+                                </div>
+                                        </Card>
+                               
+                                 </div>
+                                    <div  className="serviceroot1R">
+                                        <Card>
+                                            <Typography  className="title1Rbasic">
+                                            Selected
+                                            </Typography>
+                                            </Card>
+                                    
+                                    </div>
+                             </div> 
+                
+                              </div>
+                            </div>}
 
+            </div>
+          </div>
+        </Paper> :
+         <Paper id="rootpaper">
+        
+         <div className="container">
+
+           <div className="border">
+             <div className="loginFrom">
+               <img src={profile} id="img" />
+               <div className="inputField">
+                 <TextField
+                   error={this.state.helperTextEmail}
+                   helperText={this.state.helperTextEmail}
+                   id="btn"
+                   variant="outlined"
+                   label="Emails"
+                    onChange={this.onchangeEmail}
+                 />
+               </div>
+
+               <div className="inputField">
+                 <TextField
+                   error={this.state.helperTextpassowrd }
+                  id="btn"
+                  variant="outlined"
+                  type="password"
+                  label="Password"
+                  helperText={this.state.helperTextpassowrd }
+                  onChange={this.onchangePassword}
+                 />
+               </div>
+
+               <div className="submitButton">
+                 <Button id="subbtn" onClick={e => this.SignIn(e)}>
+                   Sign in
+               </Button>
+               </div>
+               <div className="belowlogin">
+                 <Button id="forgotstyle" onClick={e => this.ForgotButton(e)}>
+                  Forgot Password
+                  </Button>
+               </div>
+
+            
+             </div>
+           </div>
+           </div>
+                
+            </Paper>      }
         <div className="registercontainer">
         <Button id="register" onClick={e => this.register(e)}>
               Create account
@@ -239,4 +490,4 @@ onchangePassword = event => {
     );
   }
 }
-export default Login;
+export default withStyles(useStyles)(Login);

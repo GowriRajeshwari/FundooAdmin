@@ -270,7 +270,7 @@ class Service extends Component {
                       hello
                     </div>
                     <div className="buttondone" onClick={e => this.Done(e)}>
-                    <Button size="small" style={{backgroundColor : 'blue'}} onClick={e => this.processtopay(e)}>
+                    <Button size="small" style={{backgroundColor : 'blue',color:'white',fontSize:'10px'}} onClick={e => this.processtopay(e)}>
                     Processed to checkout
                     </Button>
                     </div>

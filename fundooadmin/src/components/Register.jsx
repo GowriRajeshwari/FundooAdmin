@@ -129,9 +129,10 @@ class Register extends Component {
                         snackbarOpen: true,
                         snackbarMessage: "Succefully Registered."
                       })
-                    this.props.history.push({
+                      this.props.history.push({
                         pathname: "/",
-                    });
+                        state: { service: this.state.service , registershow : true }
+                      });
                } else {
                    this.setState({  snackbarmsg: "Register Not Successfull", snackbaropen: true });
                }

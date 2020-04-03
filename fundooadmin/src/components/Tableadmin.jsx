@@ -35,14 +35,6 @@ function searchigFor(query){
   }
 }
 
-// }
-// const rows = [
-//   createData('Frozen yoghurt', 159 , 4.0),
-//   createData('Frozen yoghurt', 159 , 4.0),
-//   createData('Frozen yoghurt', 159 , 4.0),
-//   createData('Frozen yoghurt', 159 , 4.0),
-//   createData('Gingerbread', 49, 3.9),
-// ];
 
 class Tableadmin extends Component {
   constructor(props) {
