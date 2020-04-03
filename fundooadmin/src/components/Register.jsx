@@ -71,7 +71,7 @@ class Register extends Component {
             confirmpassword: "",
             helperText: "",
             phone: "",
-            error: false,
+            error: null,
             show: false,
             login: "Create your FunDoo Account",
             next: false,
@@ -122,7 +122,7 @@ class Register extends Component {
         console.log(data);
 
 
-        if(this.state.error == false){
+        if(data.firstName && data.lastName && data.email && data.service && data.password && data.role != ''){
             register(data).then(response => {
                 console.log(response);
                if (response.status === 200) {
