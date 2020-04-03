@@ -392,16 +392,7 @@ class Register extends Component {
 
                                 
                                 <div className="inputFieldReg">
-                                    {/* <TextField
-                                        id="btnReg"
-                                        variant="outlined"
-                                        label="Phone"
-                                        // type="number"
-                                        error={this.state.helperTextCountry}
-                                        helperText={this.state.helperTextCountry}
-                                        onChange={this.onchangePhone}
-                                        // size="small"
-                                    /> */}
+                                  
                                      <Select
                                         labelId="demo-simple-select-label"
                                         id="btnReg"
