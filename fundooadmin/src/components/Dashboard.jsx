@@ -9,20 +9,18 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Tableadmin from './Tableadmin'
+import QuestionAnswer from "./QuestionAnswer"
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import search from '../assets/search.png';
 import clear from '../assets/clear.png';
-
+import DetailsIcon from '@material-ui/icons/Details';
 
 
 const drawerWidth = 240;
@@ -104,7 +102,7 @@ const useStyles = theme => ({
         this.state = {
             open : false,
              setOpen : false,
-             choice:"",
+             choice:"Tableadmin",
              query:''
          
         };
@@ -129,16 +127,19 @@ const useStyles = theme => ({
 
   getcomponents=()=>{
 
-      if(this.state.choice == 'Editlabels'){
-        //   return <Edit/>
+      if(this.state.choice == 'Tableadmin'){
+        return <Tableadmin query={this.state.query}/>
       }
-      else if(this.state.choice == 'Notes'){
-        // return <TakeaNotes/>
+      else if(this.state.choice == 'details'){
+        return <QuestionAnswer/>
       }
   }
   queryfunction=async(event)=>{
      await this.setState({query : event.target.value});
     //  <Tableadmin query={this.state.query}/>
+  }
+  details=(details)=>{
+    this.setState({ choice : details})
   }
 render(){
     const {classes} = this.props;
@@ -151,23 +152,15 @@ render(){
           [classes.appBarShift]: this.state.open,
         })}
       >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={this.handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, this.state.open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
+        <Toolbar style={{display : "flex",justifyContent:"space-between"}}>
+          
           <Typography variant="h6" noWrap>
            Fundoo
           </Typography>
                      <div style={
-                               { height: '60px',
+                               { height: '40px',
                                 width: '700px',
-                                marginLeft: '200px',
+                                marginLeft: '40px',
                                 backgroundColor:'#ffffff',
                                 flexDirection: 'row',
                                 display: 'flex',
@@ -178,7 +171,8 @@ render(){
  
                                 }>
                               <Paper>
-                                  <div style={{ display : 'flex',justifyContent : 'center',height : '60px',width : '700px',alignItems:'center'}}>
+                                  <div style={{ display : 'flex',justifyContent : 'center',
+                                  height : '40px',width : '700px',alignItems:'center'}}>
                                   <img src={search} />
                                 <TextField
                                     // label="Search"
@@ -195,6 +189,15 @@ render(){
                                 
                              </Paper>
                     </div>
+                    <IconButton
+            // color="white"
+            // aria-label="open drawer"
+            // edge="start"
+          >
+                                 <DetailsIcon onClick={()=>this.details("details")}/>
+
+          </IconButton>
+                      
         </Toolbar>
       </AppBar>
       <Drawer
@@ -208,7 +211,7 @@ render(){
       >
         <div className={classes.drawerHeader1}>
           <IconButton onClick={this.handleDrawerClose}>
-          <MenuIcon />
+          {/* <MenuIcon /> */}
           </IconButton>
         </div>
         <Divider />
@@ -247,9 +250,10 @@ render(){
       >
         <div className={classes.drawerHeader} />
         <List style={{ maxHeight: '100%', overflow: 'auto', padding: '5px' }} >
-        <Tableadmin query={this.state.query}/>
-        </List>
         {this.getcomponents()}
+          
+        
+        </List>
         
       </main>
     </div>

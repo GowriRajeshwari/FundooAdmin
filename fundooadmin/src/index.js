@@ -8,6 +8,7 @@ import './Css/Register.css'
 import './Css/ForgotPassword.css'
 import './Css/ResetPassword.css'
 import './Css/service.css'
+import './Css/QuestionAnswer.css'
 
 import * as serviceWorker from './serviceWorker';
 

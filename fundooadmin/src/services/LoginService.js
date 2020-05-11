@@ -1,5 +1,7 @@
 import axios from "axios";
 const url = "http://fundoonotes.incubation.bridgelabz.com/api/user";
+const access_token = localStorage.getItem("id");
+
 export async function login(data) {
   //console.log(process.env);
   console.log(process.env.REACT_APP_URL)
@@ -51,6 +53,16 @@ export async function resetPassword(data,access_token) {
 export async function getuser() {
   try {
     const response = await axios.get(process.env.REACT_APP_GETUSER);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+export async function getUnapprovalQuestion() {
+  try {
+    const response = await axios.get(process.env.REACT_APP_UNAPPROVAL, {params : { access_token }});
     return response;
   } catch (error) {
     console.log(error);
