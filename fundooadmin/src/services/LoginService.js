@@ -70,3 +70,21 @@ export async function getUnapprovalQuestion() {
   }
 }
 
+export async function AcceptQuestion(id) {
+  try {
+    const response = await axios.post("http://fundoonotes.incubation.bridgelabz.com/api/questionAndAnswerNotes/approve/"+ id,id, {params : { access_token }});
+    return response;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+export async function RejectQuestion(id) {
+  try {
+    const response = await axios.post("http://fundoonotes.incubation.bridgelabz.com/api/questionAndAnswerNotes/reject/"+ id,id, {params : { access_token }});
+    return response;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}

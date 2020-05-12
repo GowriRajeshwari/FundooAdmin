@@ -131,7 +131,7 @@ const useStyles = theme => ({
         return <Tableadmin query={this.state.query}/>
       }
       else if(this.state.choice == 'details'){
-        return <QuestionAnswer/>
+        return <QuestionAnswer query={this.state.query}/>
       }
   }
   queryfunction=async(event)=>{
