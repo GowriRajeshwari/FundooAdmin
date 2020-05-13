@@ -5,7 +5,7 @@ body{
 .detailcontainer2{
     width : 80%;
     height: 500px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 
     /* background-color: blue; */
 }
@@ -15,11 +15,12 @@ body{
 }
 .questionPart{
     /* height: 40px; */
-    width: 80%;
+    width: 87%;
     flex-wrap: wrap;
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
 
     /* justify-content: center; */
     /* background-color: blueviolet; */
@@ -33,7 +34,7 @@ body{
     cursor: pointer;
     margin-left:10px ;
     padding : 2px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     border-radius: 5px;
     font-size: 16px;
     background-color: #1189de;
@@ -41,7 +42,7 @@ body{
     font-family: lato;
 }
 .canceled{
-    margin-top: 10px;
+    /* margin-top: 10px; */
     background-color: red;
     color :white;
     /* border: 1px solid black; */
@@ -59,7 +60,7 @@ body{
 
 }
 .approved1{
-    margin-top: 10px;
+    /* margin-top: 10px; */
     font-family: lato;
     background-color: white;
     color:black;
@@ -80,7 +81,7 @@ body{
 
 }
 .canceled1{
-    margin-top: 10px;
+    /* margin-top: 10px; */
     background-color: white;
     color : black;
     /* border: 1px solid black; */
@@ -103,6 +104,8 @@ body{
 .row{
     display : flex;
     flex-direction: row;
+    margin-bottom: 15px;
+    margin-top: 15px;
 
     /* justify-content: center; */
 }
@@ -113,4 +116,21 @@ body{
 .End{
     display: flex;
     justify-content: flex-end;
+}
+.rowWise{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+}
+.widthApproval{
+    /* width : 50px */
+    margin-right: 30px;
+}
+.stylefont1{
+    font-family: lato;
+    font-size: 18px;
+    font-weight: bold;
 }

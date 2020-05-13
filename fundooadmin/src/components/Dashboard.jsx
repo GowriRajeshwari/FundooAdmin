@@ -21,8 +21,8 @@ import TextField from "@material-ui/core/TextField";
 import search from '../assets/search.png';
 import clear from '../assets/clear.png';
 import DetailsIcon from '@material-ui/icons/Details';
-
-
+import HowToRegIcon from '@material-ui/icons/HowToReg';
+import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 const drawerWidth = 240;
 
 const useStyles = theme => ({
@@ -30,6 +30,7 @@ const useStyles = theme => ({
     display: 'flex',
   },
   appBar: {
+    backgroundColor:'white',
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -162,19 +163,13 @@ class Dashboard extends Component {
           })}
         >
           <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
-
-            <Typography variant="h6" noWrap>
+            <div>
+            <Typography variant="h6" noWrap style={{color : 'black'}}>
               Fundoo
           </Typography>
-            <div >
-              <div onClick={()=>this.handleButton("Admin")}>
-                Admin
             </div>
-              <div onClick={()=>this.handleButton("QA")}>
-                QA
-              </div>
-
-            </div>
+            
+           
             <div style={
               {
                 height: '40px',
@@ -189,10 +184,12 @@ class Dashboard extends Component {
               }
 
             }>
-              <Paper>
+    
+              <Paper style={{broderRadius : " 8px",border : "0.1px solid grey"}}>
                 <div style={{
                   display: 'flex', justifyContent: 'center',
-                  height: '40px', width: '700px', alignItems: 'center'
+                  height: '40px', width: '700px',
+                  alignItems: 'center',boxShadow : " 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19)"
                 }}>
                   <img src={search} />
                   <TextField
@@ -212,12 +209,20 @@ class Dashboard extends Component {
 
               </Paper>
             </div>
-            <div
+            {/* <div
             >
               <DetailsIcon onClick={() => this.details("details")} />
 
-            </div>
+            </div> */}
+           <div style={{display :"flex",flexDirection : "row"}}>
+              <IconButton style={{color : 'black',cursor : "pointer"}} onClick={()=>this.handleButton("Admin")}>
+               <HowToRegIcon/>
+            </IconButton>
+              <IconButton style={{color : 'black',cursor : "pointer"}} onClick={()=>this.handleButton("QA")}>
+                <QuestionAnswerIcon/>
+              </IconButton>
 
+            </div>
           </Toolbar>
         </AppBar>
         <Drawer

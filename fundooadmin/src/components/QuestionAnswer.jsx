@@ -82,10 +82,21 @@ close=()=>{
     return (
       <div className="firstcontainer">
           <div className="detailcontainer2">
-          {/* <div className="End">
-            close
-          </div> */}
+          <div className="rowWise">
+            <div>
+            <div className="stylefont1">
+              Question & Answer
+              </div>
+            </div>
+            <div className="widthApproval">
+              <div className="stylefont1">
+              Approval
+              </div>
+            </div>
+          </div>
           {this.state.data.filter(searchigFor(this.props.query)).map((data,index)=>(
+            <div>
+              <Divider/>
               <div key={index} className="row">
                   <div className="questionPart">
                       <div className="stylefont">
@@ -113,7 +124,9 @@ close=()=>{
                  
                 }
                   </div>
-                  <Divider/>
+                  
+              </div>
+              <Divider/>
               </div>
           ))}
               </div>
