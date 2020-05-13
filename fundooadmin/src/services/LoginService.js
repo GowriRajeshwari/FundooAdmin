@@ -72,7 +72,7 @@ export async function getUnapprovalQuestion() {
 
 export async function AcceptQuestion(id) {
   try {
-    const response = await axios.post("http://fundoonotes.incubation.bridgelabz.com/api/questionAndAnswerNotes/approve/"+ id,id, {params : { access_token }});
+    const response = await axios.post(process.env.REACT_APP_ACCEPT+ id,id, {params : { access_token }});
     return response;
   } catch (error) {
     console.log(error);
@@ -81,7 +81,7 @@ export async function AcceptQuestion(id) {
 }
 export async function RejectQuestion(id) {
   try {
-    const response = await axios.post("http://fundoonotes.incubation.bridgelabz.com/api/questionAndAnswerNotes/reject/"+ id,id, {params : { access_token }});
+    const response = await axios.post(process.env.REACT_APP_REJECT + id,id, {params : { access_token }});
     return response;
   } catch (error) {
     console.log(error);

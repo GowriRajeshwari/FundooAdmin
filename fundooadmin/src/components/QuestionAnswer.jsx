@@ -10,6 +10,7 @@ import { IconButton } from "@material-ui/core";
 import Card from '@material-ui/core/Card';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 function searchigFor(query){
   return function(x){
@@ -21,7 +22,9 @@ class QuestionAnswer extends Component {
     super(props);
     this.state = {
         data :[],
-        query : this.props.query
+        query : this.props.query,
+        snackbaropen: false,
+
     
     };
   }
@@ -39,39 +42,49 @@ class QuestionAnswer extends Component {
     var content = message.replace( /<[^>]*>/g , "");
     return content;
   }
-  acceptQuestion=(id)=>{
-    let data={
-      answerid : id
-    }
+  acceptQuestion=(id,msg)=>{
+  
     AcceptQuestion(id).then(response => {
       console.log(response);
      if (response.status === 200) {
        this.componentDidMount()
           // this.setState({ data : response.data.data})
+      this.setState({  snackbarmsg: msg.replace( /<[^>]*>/g , "") + " accepted", snackbaropen: true });
+
      } else {
-         this.setState({  snackbarmsg: "Login Not Successfull,Make sure email & password is correct", snackbaropen: true });
+         this.setState({  snackbarmsg: "Message not accepted", snackbaropen: true });
      }
   });
   }
-  rejectQuestion=(id)=>{
-    // RejectQuestion
-    let data={
-      answerid : id
-    }
+  rejectQuestion=(id,msg)=>{
+   
     RejectQuestion(id).then(response => {
       console.log(response);
      if (response.status === 200) {
+      this.setState({  snackbarmsg: msg.replace( /<[^>]*>/g , "")+ " rejected", snackbaropen: true });
+
       this.componentDidMount()
+
           // this.setState({ data : response.data.data})
      } else {
-         this.setState({  snackbarmsg: "Login Not Successfull,Make sure email & password is correct", snackbaropen: true });
+         this.setState({  snackbarmsg: "message not rejected", snackbaropen: true });
      }
   });
   }
+  handleClose=(event)=> {
+    // event.preventDefault();
+    this.setState({ snackbaropen: false });
+}
+close=()=>{
+
+}
   render() {
     return (
       <div className="firstcontainer">
           <div className="detailcontainer2">
+          {/* <div className="End">
+            close
+          </div> */}
           {this.state.data.filter(searchigFor(this.props.query)).map((data,index)=>(
               <div key={index} className="row">
                   <div className="questionPart">
@@ -86,7 +99,7 @@ class QuestionAnswer extends Component {
                       Accept
                       </div>
                     </div> : 
-                    <div className="approved1" onClick={()=>this.acceptQuestion(data.id)}>
+                    <div className="approved1" onClick={()=>this.acceptQuestion(data.id,data.message)}>
                       <div>
                       Accept
                       </div>
@@ -94,14 +107,23 @@ class QuestionAnswer extends Component {
                     {data.isCanceled ? <div className="canceled">
                       <div>Reject</div>
                     </div> : 
-                    <div className="canceled1" onClick={()=>this.rejectQuestion(data.id)}>
+                    <div className="canceled1" onClick={()=>this.rejectQuestion(data.id,data.message)}>
                     <div>Reject</div>
-                  </div>}
                   </div>
+                 
+                }
+                  </div>
+                  <Divider/>
               </div>
           ))}
               </div>
-       
+              <Snackbar open={this.state.snackbaropen} autoHideDuration={6000} onClose={this.handleClose}
+                    message={<span>{this.state.snackbarmsg}</span>}
+                    action={[
+                        <IconButton key="close" arial-label="close" color="inherit" onClick={this.handleClose}>
+                            x</IconButton>
+                    ]}>
+                </Snackbar>
       </div>
     );
   }
