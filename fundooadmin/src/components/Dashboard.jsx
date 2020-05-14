@@ -6,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
+import keepBulb from "../assets/keepBulb.png";
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -94,6 +95,11 @@ const useStyles = theme => ({
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
   },
+  bulbImg:{
+    display : 'flex',
+    justifyContent : 'center',
+    marginRight : theme.spacing(1)
+  },
 });
 
 class Dashboard extends Component {
@@ -163,10 +169,14 @@ class Dashboard extends Component {
           })}
         >
           <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
-            <div>
-            <Typography variant="h6" noWrap style={{color : 'black'}}>
+            <div style={{display : "flex",flexDirection:"row"}}>
+            <div className={classes.bulbImg} className="bulbicon"  >
+             <img src={keepBulb} style={{ height : '45px',width : '45px'}} />
+          </div>
+            <Typography variant="h6" noWrap style={{color : 'black',display:"flex",alignItems:"center",marginLeft :"10px"}}>
               Fundoo
           </Typography>
+
             </div>
             
            
@@ -193,13 +203,14 @@ class Dashboard extends Component {
                 }}>
                   <img src={search} />
                   <TextField
+                  placeholder="search"
                     // label="Search"
                     hintText="Password"
                     // floatingLabelText="Password"
                     id="inputFielddash"
                     InputProps={{ disableUnderline: true }}
                     style={{
-                      backgroundColor: '#ff00',
+                      backgroundColor: '#ff00',marginLeft : "5px",
                       border: 'none', disableUnderline: true, width: '600px'
                     }}
                     onChange={this.queryfunction}
@@ -214,12 +225,19 @@ class Dashboard extends Component {
               <DetailsIcon onClick={() => this.details("details")} />
 
             </div> */}
+            {/* <div class="tooltip">Hover over me
+  <span class="tooltiptext">Tooltip text</span>
+</div> */}
+
            <div style={{display :"flex",flexDirection : "row"}}>
-              <IconButton style={{color : 'black',cursor : "pointer"}} onClick={()=>this.handleButton("Admin")}>
+              <IconButton class="tooltip" style={{color : 'black',cursor : "pointer"}} onClick={()=>this.handleButton("Admin")}>
                <HowToRegIcon/>
+               <span class="tooltiptext">User Details</span>
             </IconButton>
-              <IconButton style={{color : 'black',cursor : "pointer"}} onClick={()=>this.handleButton("QA")}>
+              <IconButton class="tooltip" style={{color : 'black',cursor : "pointer"}} onClick={()=>this.handleButton("QA")}>
                 <QuestionAnswerIcon/>
+               <span class="tooltiptext">Answer Approval</span>
+
               </IconButton>
 
             </div>

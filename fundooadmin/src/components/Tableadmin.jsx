@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import { getuser } from "../services/LoginService";
 import Snackbar from '@material-ui/core/Snackbar';
 import { IconButton } from "@material-ui/core";
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles =({
   table: {
@@ -70,6 +70,9 @@ render(){
   return (
     <div className="tableWidth">
       <div className="tableCenter">
+        {/* {this.state.spinner ?
+          <CircularProgress /> :  */}
+        
     <TableContainer component={Paper}>
       <Table className="table" aria-label="simple table">
         <TableHead>
@@ -95,6 +98,7 @@ render(){
         </TableBody>
       </Table>
     </TableContainer>
+{/* } */}
     </div>
     <Snackbar open={this.state.snackbaropen} autoHideDuration={6000} onClose={this.handleClose}
                     message={<span>{this.state.snackbarmsg}</span>}
