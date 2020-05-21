@@ -111,7 +111,7 @@ class Dashboard extends Component {
     this.state = {
       open: false,
       setOpen: false,
-      choice: "Tableadmin",
+      choice: "Cart",
       query: ''
 
     };
@@ -239,16 +239,16 @@ class Dashboard extends Component {
 </div> */}
 
            <div style={{display :"flex",flexDirection : "row"}}>
-           <IconButton class="tooltip" style={{color : 'black',cursor : "pointer"}} onClick={()=>this.handleButton("Cart")}>
+           <IconButton class="tooltip" style={{color : 'black',cursor : "pointer",border : 'none'}} onClick={()=>this.handleButton("Cart")}>
                <ShoppingCartIcon />
                <span class="tooltiptext">Cart Approval</span>
             </IconButton>
 
-              <IconButton class="tooltip" style={{color : 'black',cursor : "pointer"}} onClick={()=>this.handleButton("Admin")}>
+              <IconButton class="tooltip" style={{color : 'black',cursor : "pointer",border : 'none'}} onClick={()=>this.handleButton("Admin")}>
                <HowToRegIcon/>
                <span class="tooltiptext">User Details</span>
             </IconButton>
-              <IconButton class="tooltip" style={{color : 'black',cursor : "pointer"}} onClick={()=>this.handleButton("QA")}>
+              <IconButton class="tooltip" style={{color : 'black',cursor : "pointer",border : 'none'}} onClick={()=>this.handleButton("QA")}>
                 <QuestionAnswerIcon/>
                <span class="tooltiptext">Answer Approval</span>
 

@@ -24,15 +24,30 @@ class CartApproval extends Component {
         data :[],
         query : this.props.query,
         snackbaropen: false,
+        address : []
 
     
     };
   }
   componentDidMount=()=>{
     userCartList().then(response => {
-        console.log(response);
+        console.log( response.data.data)
+        console.log(response.data.data[0].user.addresses[0]);
+
        if (response.status === 200) {
-            // this.setState({ data : response.data.data})
+            this.setState({ data : response.data.data})
+            for(let i=0;i<response.data.data.length;i++){
+              if(response.data.data[i].user.addresses != undefined){
+                this.state.address.push( response.data.data[i].user.addresses[0].address);
+              }
+              else{
+                this.state.address.push("undefined");
+              }
+               
+             
+            }
+            this.setState({ address : this.state.address})
+            console.log(this.state.address[0])
        } else {
            this.setState({  snackbarmsg: "Login Not Successfull,Make sure email & password is correct", snackbaropen: true });
        }
@@ -81,7 +96,7 @@ close=()=>{
   render() {
     return (
       <div className="firstcontainer">
-          {/* <div className="detailcontainer2">
+          <div className="detailcontainer2">
           <div className="rowWise">
             <div>
             <div className="stylefont1">
@@ -94,15 +109,35 @@ close=()=>{
               </div>
             </div>
           </div>
-          {this.state.data.filter(searchigFor(this.props.query)).map((data,index)=>(
+          {this.state.data.map((data,index)=>(
             <div>
               <Divider/>
               <div key={index} className="row">
                   <div className="questionPart">
                       <div className="stylefont">
-                      {this.message(data.message)}
+                      
+                      
+                      {data.user.firstName} {data.user.lastName}
+                      
+                      </div>
+                      <div>
+                        <div className="stylefont">
+                          service : {data.product.name}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="stylefont">
+                          address : {this.state.address[index]}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="stylefont">
+
+                          
+                        </div>
                       </div>
                   </div>
+                      
                   <div className="alignItemCenter">
                     {data.isApproved ? 
                     <div className="approved" >
@@ -136,7 +171,7 @@ close=()=>{
                         <IconButton key="close" arial-label="close" color="inherit" onClick={this.handleClose}>
                             x</IconButton>
                     ]}>
-                </Snackbar> */}
+                </Snackbar>
       </div>
     );
   }

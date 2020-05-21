@@ -19,7 +19,8 @@ body{
     width: 87%;
     flex-wrap: wrap;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+    flex-direction: column;
     /* margin-top: 10px;
     margin-bottom: 10px; */
 
