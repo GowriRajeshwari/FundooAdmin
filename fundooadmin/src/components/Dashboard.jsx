@@ -16,6 +16,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Tableadmin from './Tableadmin'
+import CartApproval from './CartApproval'
 import QuestionAnswer from "./QuestionAnswer"
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
@@ -23,6 +24,7 @@ import search from '../assets/search.png';
 import clear from '../assets/clear.png';
 import DetailsIcon from '@material-ui/icons/Details';
 import HowToRegIcon from '@material-ui/icons/HowToReg';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 const drawerWidth = 240;
 
@@ -140,6 +142,10 @@ class Dashboard extends Component {
     else if(cho == 'QA'){
       this.setState({ choice: 'details' })
     }
+    else if( cho == 'Cart'){
+      this.setState({ choice: 'Cart' })
+
+    }
   }
   getcomponents = () => {
 
@@ -148,6 +154,9 @@ class Dashboard extends Component {
     }
     else if (this.state.choice == 'details') {
       return <QuestionAnswer query={this.state.query} />
+    }
+    else if(this.state.choice == 'Cart'){
+      return <CartApproval query={this.state.query} />
     }
   }
   queryfunction = async (event) => {
@@ -230,6 +239,11 @@ class Dashboard extends Component {
 </div> */}
 
            <div style={{display :"flex",flexDirection : "row"}}>
+           <IconButton class="tooltip" style={{color : 'black',cursor : "pointer"}} onClick={()=>this.handleButton("Cart")}>
+               <ShoppingCartIcon />
+               <span class="tooltiptext">Cart Approval</span>
+            </IconButton>
+
               <IconButton class="tooltip" style={{color : 'black',cursor : "pointer"}} onClick={()=>this.handleButton("Admin")}>
                <HowToRegIcon/>
                <span class="tooltiptext">User Details</span>

@@ -11,6 +11,8 @@ import { getuser } from "../services/LoginService";
 import Snackbar from '@material-ui/core/Snackbar';
 import { IconButton } from "@material-ui/core";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import ClipLoader from "react-spinners/ClipLoader"
+
 
 const useStyles =({
   table: {
@@ -43,7 +45,9 @@ class Tableadmin extends Component {
         data : [],
         snackbaropen: false,
         snackbarmsg: '',
-        query : this.props.query
+        query : this.props.query,
+        loading : true
+
     };
   }
 
@@ -57,7 +61,7 @@ class Tableadmin extends Component {
       console.log(response);
      if (response.status === 200) {
          
-        this.setState({data : response.data});
+        this.setState({data : response.data,loading : false});
         console.log(this.state.data.length)
      } else {
          this.setState({  snackbarmsg: "Netwrork is slow", snackbaropen: true });
@@ -68,12 +72,14 @@ class Tableadmin extends Component {
 render(){
   const classes = this.props;
   return (
+    
     <div className="tableWidth">
+      
       <div className="tableCenter">
-        {/* {this.state.spinner ?
-          <CircularProgress /> :  */}
+  
         
     <TableContainer component={Paper}>
+    
       <Table className="table" aria-label="simple table">
         <TableHead>
           <TableRow className="TableContainer">
@@ -84,6 +90,13 @@ render(){
           </TableRow>
         </TableHead>
         <TableBody>
+        <ClipLoader
+                // css={override}
+                css={{ width : "50px",height :"50px",marginLeft : "105%"}}
+                size={150}
+                color={"#123abc"}
+                loading={this.state.loading}
+              />
         {this.state.data.filter(searchigFor(this.props.query)).map((data, index) => (
           // {rows.map((row) => (
             <TableRow key={index}>

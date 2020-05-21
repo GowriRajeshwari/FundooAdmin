@@ -88,3 +88,36 @@ export async function RejectQuestion(id) {
     return error;
   }
 }
+export async function userCartList() {
+  try {
+    const response = await axios.get(process.env.REACT_APP_USERCARTLIST, {params : { access_token }});
+    return response;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+export async function adminCompleteOrder(data) {
+  try {
+    const response = await axios.post(process.env.REACT_APP_ADMINCOMPLETEORDER,data, {params : { access_token }});
+    return response;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+export async function adminCancelOrder(data) {
+  try {
+    const response = await axios.post(process.env.REACT_APP_ADMINCANCELORDER,data, {params : { access_token }});
+    return response;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+//  http://fundoonotes.incubation.bridgelabz.com/api/productcarts/userCartList
+//  http://fundoonotes.incubation.bridgelabz.com/api/productcarts/adminCompleteOrder
+//  http://fundoonotes.incubation.bridgelabz.com/api/productcarts/adminCancelOrder

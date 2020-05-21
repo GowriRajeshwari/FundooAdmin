@@ -29,7 +29,7 @@
   
   .tooltip .tooltiptext {
     visibility: hidden;
-    width: 120px;
+    width: 100px;
     background-color: #555;
     color: #fff;
     text-align: center;
@@ -51,8 +51,8 @@
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    /* border-style: solid; */
+    /* border-color: #555 transparent transparent transparent; */
   }
   
   .tooltip:hover .tooltiptext {

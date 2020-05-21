@@ -10,6 +10,7 @@ import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
 import service from './components/service';
 import QuestionAnswer from './components/QuestionAnswer';
+import CartApproval from './components/CartApproval';
 let token =  window.location.href.split('/' )[4];
 let resetpassword="/resetpassword/"+token
 console.log(token);
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Register" component={Register} />
         <Route path="/Forgot" component={ForgotPassword} />
         <Route path="/service" component={service} />
+        <Route path="/cartApproval" component={CartApproval} />
         <Route path="/questionAnswer" component={QuestionAnswer} />
         <Route path={resetpassword} component={ResetPassword} />
 
