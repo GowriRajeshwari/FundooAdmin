@@ -43,6 +43,8 @@
     opacity: 0;
     transition: opacity 0.3s;
     border: none;
+    outline: none;
+
   }
   
   .tooltip .tooltiptext::after {
@@ -54,10 +56,340 @@
     border-width: 5px;
     /* border : none; */
     /* border-style: solid; */
+    outline: none;
     border-color: #555 transparent transparent transparent;
   }
   
   .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+    outline: none;
+
   }
+
+
+
+
+
+
+  /* dashboard Css */
+.serachCotainer1{
+  height: 40px;
+  width: 700px ;
+  margin-left: 40px ;
+  background-color: #ffffff;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: center;
+
+}
+ .serachCoteiner2{
+border-radius: 3px ;
+background-color: rgba(0,0,0,.1);
+ }
+
+.searchContainer3{
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 700px ;
+  align-items: center;
+  border: none;
+}
+#inputFielddash{
+  background-color: #ff00;
+  margin-left: 5px;
+  border: none;
+  width: 600px;
+}
+.bulbIcon{
+  width: 45px;
+  height: 45px;
+}
+.fundooDesign{
+  color:black;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+@media only screen and (max-width : 414px){
+  .serachCotainer1{
+    height: 40px;
+    min-width: 50px ;
+    /* margin-left: 2px ; */
+    background-color:green;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+  
+  }
+   .serachCoteiner2{
+  border-radius: 3px ;
+  min-width: 50px ;
+
+  background-color: rgba(0,0,0,.1);
+   }
+  
+  .searchContainer3{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    min-width: 40px ;
+    align-items: center;
+    border: none;
+  }
+  #inputFielddash{
+    background-color: #ff00;
+    /* margin-left: 5px; */
+    border: none;
+    min-width: 50px;
+  }
+  .bulbIcon{
+    width: 35px;
+    height: 35px;
+
+  }
+  .fundooDesign{
+    /* color:black; */
+    display: none;
+    /* display: flex; */
+    /* align-items: center; */
+    /* margin-left: 1px; */
+  }
+
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .serachCotainer1{
+    height: 40px;
+    width: 230px ;
+    margin-left: 2px ;
+    background-color:#ffffff;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+  
+  }
+   .serachCoteiner2{
+  border-radius: 3px ;
+  background-color: rgba(0,0,0,.1);
+   }
+  
+  .searchContainer3{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 230px ;
+    align-items: center;
+    border: none;
+  }
+  #inputFielddash{
+    background-color: #ff00;
+    /* margin-left: 5px; */
+    border: none;
+    width: 150px;
+  }
+  .bulbIcon{
+    width: 35px;
+    height: 35px;
+  }
+  .fundooDesign{
+    color:black;
+    display: flex;
+    align-items: center;
+    margin-left: 1px;
+  }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  /* .example {background: green;} */
+  .serachCotainer1{
+    height: 40px;
+    width: 340px ;
+    margin-left: 3px ;
+    background-color: #fff;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+  
+  }
+   .serachCoteiner2{
+  border-radius: 3px ;
+  background-color: rgba(0,0,0,.1);
+   }
+  
+  .searchContainer3{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 340px ;
+    align-items: center;
+    border: none;
+  }
+  #inputFielddash{
+    background-color: #ff00;
+    margin-left: 5px;
+    border: none;
+    width: 290px;
+  }
+  .bulbIcon{
+    width: 35px;
+    height: 35px;
+  }
+  .fundooDesign{
+    color:black;
+    display: flex;
+    align-items: center;
+    margin-left: 1px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  /* .example {background: blue;} */
+  .serachCotainer1{
+    height: 40px;
+    width: 500px ;
+    margin-left: 3px ;
+    background-color: #ffffff;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+  
+  }
+   .serachCoteiner2{
+  border-radius: 3px ;
+  background-color: rgba(0,0,0,.1);
+   }
+  
+  .searchContainer3{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 500px ;
+    align-items: center;
+    border: none;
+  }
+  #inputFielddash{
+    background-color: #ff00;
+    margin-left: 5px;
+    border: none;
+    width: 400px;
+  }
+  .bulbIcon{
+    width: 45px;
+    height: 45px;
+  }
+  .fundooDesign{
+    color:black;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  /* .example {background: orange;} */
+  .serachCotainer1{
+    height: 40px;
+    width: 700px ;
+    margin-left: 40px ;
+    background-color: #ffffff;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+  
+  }
+   .serachCoteiner2{
+  border-radius: 3px ;
+  background-color: rgba(0,0,0,.1);
+   }
+  
+  .searchContainer3{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 700px ;
+    align-items: center;
+    border: none;
+  }
+  #inputFielddash{
+    background-color: #ff00;
+    margin-left: 5px;
+    border: none;
+    width: 600px;
+  }
+  .bulbIcon{
+    width: 45px;
+    height: 45px;
+  }
+  .fundooDesign{
+    color:black;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  /* .example {background: pink;} */
+  .serachCotainer1{
+  height: 40px;
+  width: 700px ;
+  margin-left: 40px ;
+  background-color: #ffffff;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: center;
+
+}
+ .serachCoteiner2{
+border-radius: 3px ;
+background-color: rgba(0,0,0,.1);
+ }
+
+.searchContainer3{
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 700px ;
+  align-items: center;
+  border: none;
+}
+#inputFielddash{
+  background-color: #ff00;
+  margin-left: 5px;
+  border: none;
+  width: 600px;
+}
+.bulbIcon{
+  width: 45px;
+  height: 45px;
+}
+.fundooDesign{
+  color:black;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+}

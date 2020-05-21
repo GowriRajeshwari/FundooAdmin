@@ -172,7 +172,7 @@ class Dashboard extends Component {
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
-          position="fixed"
+          // position="fixed"
           className={clsx(classes.appBar, {
             [classes.appBarShift]: this.state.open,
           })}
@@ -180,76 +180,48 @@ class Dashboard extends Component {
           <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
             <div style={{display : "flex",flexDirection:"row"}}>
             <div className={classes.bulbImg} className="bulbicon"  >
-             <img src={keepBulb} style={{ height : '45px',width : '45px'}} />
+             <img src={keepBulb} className="bulbIcon" />
           </div>
-            <Typography variant="h6" noWrap style={{color : 'black',display:"flex",alignItems:"center",marginLeft :"10px"}}>
+            <div  className="fundooDesign">
               Fundoo
-          </Typography>
+          </div>
 
             </div>
             
            
-            <div style={
-              {
-                height: '40px',
-                width: '700px',
-                marginLeft: '40px',
-                backgroundColor: '#ffffff',
-                flexDirection: 'row',
-                display: 'flex',
-                alignItems: 'center',
-                borderRadius: '3px',
-                justifyContent: 'center'
-              }
-
-            }>
+            <div className="serachCotainer1">
     
-              <Paper style={{broderRadius : " 8px",border : "0.1px solid grey"}}>
-                <div style={{
-                  display: 'flex', justifyContent: 'center',
-                  height: '40px', width: '700px',
-                  alignItems: 'center',boxShadow : " 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19)"
-                }}>
+                
+              <div className="serachCoteiner2">
+                <div className="searchContainer3">
                   <img src={search} />
                   <TextField
                   placeholder="search"
-                    // label="Search"
                     hintText="Password"
-                    // floatingLabelText="Password"
                     id="inputFielddash"
                     InputProps={{ disableUnderline: true }}
-                    style={{
-                      backgroundColor: '#ff00',marginLeft : "5px",
-                      border: 'none', disableUnderline: true, width: '600px'
-                    }}
+                    
                     onChange={this.queryfunction}
                   />
                   <img src={clear} id="imgdash" />
                 </div>
 
-              </Paper>
+              </div>
             </div>
-            {/* <div
-            >
-              <DetailsIcon onClick={() => this.details("details")} />
-
-            </div> */}
-            {/* <div class="tooltip">Hover over me
-  <span class="tooltiptext">Tooltip text</span>
-</div> */}
+         
 
            <div style={{display :"flex",flexDirection : "row"}}>
            <IconButton class="tooltip" style={{color : 'black',cursor : "pointer",border : 'none'}} onClick={()=>this.handleButton("Cart")}>
-               <ShoppingCartIcon />
+               <ShoppingCartIcon style={{opacity: "0.7"}} />
                <span class="tooltiptext">Cart Approval</span>
             </IconButton>
 
               <IconButton class="tooltip" style={{color : 'black',cursor : "pointer",border : 'none'}} onClick={()=>this.handleButton("Admin")}>
-               <HowToRegIcon/>
+               <HowToRegIcon style={{opacity: "0.7"}}/>
                <span class="tooltiptext">User Details</span>
             </IconButton>
               <IconButton class="tooltip" style={{color : 'black',cursor : "pointer",border : 'none'}} onClick={()=>this.handleButton("QA")}>
-                <QuestionAnswerIcon/>
+                <QuestionAnswerIcon style={{opacity: "0.7"}}/>
                <span class="tooltiptext">Answer Approval</span>
 
               </IconButton>

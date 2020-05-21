@@ -11,10 +11,14 @@ import Card from '@material-ui/core/Card';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import ClipLoader from "react-spinners/ClipLoader"
+
 
 function searchigFor(query){
   return function(x){
-    return x.message.toLowerCase().includes(query.toLowerCase())||!query;
+    return x.user.firstName.toLowerCase().includes(query.toLowerCase())||
+    // x.user.addresses[0].address.toLowerCase().includes(query.toLowerCase())||
+    x.product.name.toLowerCase().includes(query.toLowerCase())||!query;
   }
 }
 class CartApproval extends Component {
@@ -24,7 +28,9 @@ class CartApproval extends Component {
         data :[],
         query : this.props.query,
         snackbaropen: false,
-        address : []
+        address : [],
+        loading : true
+
 
     
     };
@@ -46,8 +52,8 @@ class CartApproval extends Component {
                
              
             }
-            this.setState({ address : this.state.address})
-            console.log(this.state.address[0])
+            this.setState({ address : this.state.address,loading: false})
+            // console.log(this.state.address[0])
        } else {
            this.setState({  snackbarmsg: "Login Not Successfull,Make sure email & password is correct", snackbaropen: true });
        }
@@ -109,20 +115,26 @@ close=()=>{
               </div>
             </div>
           </div>
-          {this.state.data.map((data,index)=>(
+          <div>
+          <ClipLoader
+                // css={override}
+                css={{ width : "50px",height :"50px",marginLeft : "50%"}}
+                size={150}
+                color={"#123abc"}
+                loading={this.state.loading}
+              />
+          </div>
+          {this.state.data.filter(searchigFor(this.props.query)).map((data,index)=>(
             <div>
               <Divider/>
               <div key={index} className="row">
                   <div className="questionPart">
                       <div className="stylefont">
-                      
-                      
                       {data.user.firstName} {data.user.lastName}
-                      
                       </div>
                       <div>
                         <div className="stylefont">
-                          service : {data.product.name}
+                          service : {data.product.name}    Price : ${data.product.price}
                         </div>
                       </div>
                       <div>
@@ -165,7 +177,7 @@ close=()=>{
               </div>
           ))}
               </div>
-              <Snackbar open={this.state.snackbaropen} autoHideDuration={6000} onClose={this.handleClose}
+              <Snackbar open={this.state.snackbaropen} autoHideDuration={4000} onClose={this.handleClose}
                     message={<span>{this.state.snackbarmsg}</span>}
                     action={[
                         <IconButton key="close" arial-label="close" color="inherit" onClick={this.handleClose}>
