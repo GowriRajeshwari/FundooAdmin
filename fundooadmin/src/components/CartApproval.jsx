@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import profile from '../assets/profile.png';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { userCartList} from "../services/LoginService";
+import { userCartList,adminCompleteOrder,adminCancelOrder} from "../services/LoginService";
 import Snackbar from '@material-ui/core/Snackbar';
 import { IconButton } from "@material-ui/core";
 import Card from '@material-ui/core/Card';
@@ -32,7 +32,7 @@ class CartApproval extends Component {
   componentDidMount=()=>{
     userCartList().then(response => {
         console.log( response.data.data)
-        console.log(response.data.data[0].user.addresses[0]);
+       
 
        if (response.status === 200) {
             this.setState({ data : response.data.data})
@@ -57,34 +57,34 @@ class CartApproval extends Component {
     var content = message.replace( /<[^>]*>/g , "");
     return content;
   }
-  acceptQuestion=(id,msg)=>{
-  
-//     AcceptQuestion(id).then(response => {
-//       console.log(response);
-//      if (response.status === 200) {
-//        this.componentDidMount()
-//           // this.setState({ data : response.data.data})
-//       this.setState({  snackbarmsg: msg.replace( /<[^>]*>/g , "") + " accepted", snackbaropen: true });
+  acceptQuestion=(id)=>{
+    let data ={
+      cartId : id
+    }
+    adminCompleteOrder(data).then(response => {
+      console.log(response);
+     if (response.status === 200) {
+       this.componentDidMount()
+      this.setState({  snackbarmsg: "OrderPlaced is accepted", snackbaropen: true });
 
-//      } else {
-//          this.setState({  snackbarmsg: "Message not accepted", snackbaropen: true });
-//      }
-//   });
+     } else {
+         this.setState({  snackbarmsg: "Order not accepted", snackbaropen: true });
+     }
+  });
   }
-  rejectQuestion=(id,msg)=>{
-   
-//     RejectQuestion(id).then(response => {
-//       console.log(response);
-//      if (response.status === 200) {
-//       this.setState({  snackbarmsg: msg.replace( /<[^>]*>/g , "")+ " rejected", snackbaropen: true });
-
-//       this.componentDidMount()
-
-//           // this.setState({ data : response.data.data})
-//      } else {
-//          this.setState({  snackbarmsg: "message not rejected", snackbaropen: true });
-//      }
-//   });
+  rejectQuestion=(id)=>{
+    let data ={
+      cartId : id
+    }
+    adminCancelOrder(data).then(response => {
+      console.log(response);
+     if (response.status === 200) {
+      this.componentDidMount()
+      this.setState({  snackbarmsg: "Order is rejected", snackbaropen: true });
+     } else {
+         this.setState({  snackbarmsg: "Order not rejected", snackbaropen: true });
+     }
+  });
   }
   handleClose=(event)=> {
     // event.preventDefault();
@@ -145,7 +145,7 @@ close=()=>{
                       Accept
                       </div>
                     </div> : 
-                    <div className="approved1" onClick={()=>this.acceptQuestion(data.id,data.message)}>
+                    <div className="approved1" onClick={()=>this.acceptQuestion(data.id)}>
                       <div style={{padding :"2px"}}>
                       Accept
                       </div>
@@ -153,7 +153,7 @@ close=()=>{
                     {data.isCanceled ? <div className="canceled">
                       <div>Reject</div>
                     </div> : 
-                    <div className="canceled1" onClick={()=>this.rejectQuestion(data.id,data.message)}>
+                    <div className="canceled1" onClick={()=>this.rejectQuestion(data.id)}>
                     <div style={{padding :"2px"}}>Reject</div>
                   </div>
                  
