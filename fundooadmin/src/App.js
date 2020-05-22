@@ -20,10 +20,10 @@ function App() {
     <Router history={history}>
       <Switch>
         <Route path="/" exact component={Login} />
-        <Route path="/Dashboard"  component={Dashboard} />
-        <Route path="/Tableadmin"  component={Tableadmin} />
-        <Route path="/Register" component={Register} />
-        <Route path="/Forgot" component={ForgotPassword} />
+        <Route path="/dashboard"  component={Dashboard} />
+        <Route path="/tableadmin"  component={Tableadmin} />
+        <Route path="/register" component={Register} />
+        <Route path="/forgot" component={ForgotPassword} />
         <Route path="/service" component={service} />
         <Route path="/cartApproval" component={CartApproval} />
         <Route path="/questionAnswer" component={QuestionAnswer} />

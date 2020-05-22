@@ -138,7 +138,7 @@ class Service extends Component {
   processtopay=()=>{
       if(this.state.service != ""){
         this.props.history.push({
-            pathname: "/Register",
+            pathname: "/register",
             state: { service: this.state.service }
           });
       }
