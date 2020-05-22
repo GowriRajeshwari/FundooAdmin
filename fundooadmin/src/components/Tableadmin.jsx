@@ -99,7 +99,7 @@ render(){
               />
         {this.state.data.filter(searchigFor(this.props.query)).map((data, index) => (
           // {rows.map((row) => (
-            <TableRow key={index}>
+            <TableRow key={index} className="TableContainer1">
               <TableCell >
                 {data.firstName}
               </TableCell>

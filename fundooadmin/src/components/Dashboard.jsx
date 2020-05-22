@@ -111,7 +111,7 @@ class Dashboard extends Component {
     this.state = {
       open: false,
       setOpen: false,
-      choice: "Cart",
+      choice: "Tableadmin",
       query: ''
 
     };
@@ -203,7 +203,7 @@ class Dashboard extends Component {
                     
                     onChange={this.queryfunction}
                   />
-                  <img src={clear} id="imgdash" />
+                  <img src={clear} id="imgdashclear" />
                 </div>
 
               </div>

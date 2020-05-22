@@ -106,8 +106,10 @@ body{
 .row{
     display : flex;
     flex-direction: row;
+    /* flex-wrap: wrap; */
     margin-bottom: 15px;
     margin-top: 15px;
+    /* min-width: 330px; */
 
     /* justify-content: center; */
 }
@@ -125,6 +127,7 @@ body{
     flex-direction: row;
     margin-bottom: 15px;
     margin-top: 15px;
+    min-width: 50%;
 
 }
 .widthApproval{
