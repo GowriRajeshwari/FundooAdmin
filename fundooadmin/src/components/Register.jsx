@@ -122,7 +122,8 @@ class Register extends Component {
         console.log(data);
 
 
-        if(data.firstName && data.lastName && data.email && data.service && data.password && data.role != ''){
+        if(this.state.helperTextEmail && this.state.helpTextFN  && this.state.helpTextLN && this.state.helperTextCountry && 
+            this.state.helperTextpassowrd  && this.state.helperTextCpassowrd=== '' ){
             register(data).then(response => {
                 console.log(response);
                if (response.status === 200) {
@@ -247,7 +248,16 @@ class Register extends Component {
             })
         }
 
-
+        if(this.state.confirmpassword == ''){
+            this.setState({
+              helperTextCpassowrd: "Enter the confirm password",
+              error: true,
+              confirmpassword: this.state.confirmpassword
+          })
+          }else{
+            this.checkPassword();
+            
+          }
 
     }
     //close snackbar
@@ -292,19 +302,25 @@ class Register extends Component {
         await this.setState({
           confirmpassword: event.target.value
         })
-        this.checkPassword()
+        // this.checkPassword()
       }
     
       checkPassword () {
         if (this.state.password === this.state.confirmpassword) {
-          this.setState({ snackbarOpen: true, snackbarmsg: 'done' })
-        } else {
-          this.setState({
-            snackbarOpen: true,
-            snackbarmsg: 'enter same password'
-          })
+            // this.setState({ snackbaropen: true, snackbarmsg: 'Password changed',pass:true });
+            this.setState({ confirmpassword: this.state.confirmpassword , helperTextCpassowrd: "",
+                error: false})
+          } else {
+            this.setState({
+                confirmpassword: this.state.confirmpassword , helperTextCpassowrd: "Password should be equal",
+                error: false,
+            //   snackbaropen: true,
+            //   snackbarmsg: 'enter same password',
+            //   pass : false
+            })
+          }
         }
-      }
+      
       onchangePhone = event => {
         this.setState({ phone: event.target.value})
       }
@@ -315,87 +331,86 @@ class Register extends Component {
         return (
             <div className="firstcontainerReg">
 
-                <Paper id="rootpaperReg" elevation={3} >
+            <Paper id="rootpaperReg" elevation={3} >
 
-                    <div className="containerReg">
-                        <div className="container2Reg">
-                            <span class="usernameReg"><span>F</span><span>u</span><span>n</span><span>D</span><span>o</span><span>o</span></span>
-                            <div className="loginstyleReg">{this.state.login}</div>
-                            <div className="rowReg">
-                                <div className="inputFieldReg">
-                                    <TextField
-                                        error={this.state.helpTextFN}
-                                        helperText={this.state.helpTextFN}
-                                        id="btnReg"
-                                        variant="outlined"
-                                        label="First Name"
-                                        onChange={this.onchangeFirstName}
-                                        // size="small"
-                                    />
-                                </div>
-                                <div className="inputFieldReg">
-                                    <TextField
-                                        error={this.state.helpTextLN}
-                                        helperText={this.state.helpTextLN}
-                                        id="btnReg"
-                                        variant="outlined"
-                                        label="Last name"
-                                        onChange={this.onchangeLastName}
-                                        // size="small"
-                                    />
-                                </div>
+                <div className="containerReg">
+                    {/* <div className="container2Reg"> */}
+                        <span class="usernameReg"><span>F</span><span>u</span><span>n</span><span>D</span><span>o</span><span>o</span></span>
+                        <div className="loginstyleReg">{this.state.login}</div>
+                        <div className="rowReg">
+                            <div className="inputFieldReg">
+                                <TextField
+                                    error={this.state.helpTextFN}
+                                    helperText={this.state.helpTextFN}
+                                    id="FirstName"
+                                    variant="outlined"
+                                    label="First Name"
+                                    onChange={this.onchangeFirstName}
+                                    // size="small"
+                                />
                             </div>
-                            <div className="rowReg">
-
-                                <div className="inputFieldReg">
-                                    <TextField
-                                        error={this.state.helperTextEmail}
-                                        helperText={this.state.helperTextEmail}
-                                        id="btnEmailReg"
-                                        variant="outlined"
-                                        label="Email"
-                                        onChange={this.onchangeEmail}
-                                        // size="small"
-                                    />
-                                </div>
+                            <div className="inputFieldReg">
+                                <TextField
+                                    error={this.state.helpTextLN}
+                                    helperText={this.state.helpTextLN}
+                                    id="btnRegLastName"
+                                    variant="outlined"
+                                    label="Last name"
+                                    onChange={this.onchangeLastName}
+                                    // size="small"
+                                />
                             </div>
+                        </div>
+                        <div className="rowReg1">
 
-                            <div className="rowReg">
-
-                                <div className="inputFieldReg">
-                                    <TextField
-                                        id="btnReg"
-                                        variant="outlined"
-                                        type="password"
-                                        label="NewPassword"
-                                        error={this.state.helperTextpassowrd}
-                                        helperText={this.state.helperTextpassowrd}
-                                        onChange={this.onchangePassword}
-                                        // size="small"
-                                    />
-                                </div>
-                                <div className="inputFieldReg">
-                                    <TextField
-                                        id="btnReg"
-                                        variant="outlined"
-                                        type="password"
-                                        label="Confirm Password"
-                                        error={this.state.helperTextCpassowrd}
-                                        helperText={this.state.helperTextCpassowrd}
-                                        onChange={this.onchangePasswordagain}
-                                        // size="small"
-                                    />
-                                </div>
+                            <div className="inputFieldReg">
+                                <TextField
+                                    error={this.state.helperTextEmail}
+                                    helperText={this.state.helperTextEmail}
+                                    id="btnEmailReg"
+                                    variant="outlined"
+                                    label="Email"
+                                    onChange={this.onchangeEmail}
+                                    // size="small"
+                                />
                             </div>
+                        </div>
 
-                            <div className="rowReg">
+                        <div className="rowReg">
 
-                                
-                                <div className="inputFieldReg">
-                                  
-                                     <Select
+                            <div className="inputFieldReg">
+                                <TextField
+                                    id="btnReg"
+                                    variant="outlined"
+                                    type="password"
+                                    label="NewPassword"
+                                    error={this.state.helperTextpassowrd}
+                                    helperText={this.state.helperTextpassowrd}
+                                    onChange={this.onchangePassword}
+                                    // size="small"
+                                />
+                            </div>
+                            <div className="inputFieldReg">
+                                <TextField
+                                    id="btnReg"
+                                    variant="outlined"
+                                    type="password"
+                                    label="Confirm Password"
+                                    error={this.state.helperTextCpassowrd}
+                                    helperText={this.state.helperTextCpassowrd}
+                                    onChange={this.onchangePasswordagain}
+                                    // size="small"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="rowReg">
+
+                            
+                            <div className="inputFieldReg">
+                            <Select
                                         labelId="demo-simple-select-label"
-                                        id="btnReg"
+                                        id="btnReg1"
                                         variant="outlined"
                                         value={this.state.phone}
                                         onChange={this.onchangePhone}
@@ -405,182 +420,197 @@ class Register extends Component {
                                         <MenuItem value={'user'}>User</MenuItem>
                                         </Select>
                                         <FormHelperText style={{color : 'red'}}> {this.state.helperTextCountry}</FormHelperText>
-                                </div>
                             </div>
-                            <div className="submitButtonReg">
-                                <Button id="subbtnReg" onClick={e => this.Register(e)}>
-                                    Register
-                                </Button>
+                            <div className="inputFieldReg1">
+                            <TextField
+                                    id="btnReg"
+                                    variant="outlined"
+                                    type="password"
+                                    label="Confirm Password"
+                                    error={this.state.helperTextCpassowrd}
+                                    helperText={this.state.helperTextCpassowrd}
+                                    onChange={this.onchangePasswordagain}
+                                    // size="small"
+                                />
                             </div>
-
-
-                            
-                       {this.state.showCardColor ?
-                            <div className="rowReg">
-                            <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
-                                     >
-                 
-                                   <div className="servicerootR">
-                                   <Card>
-                                   <div className={classes.widthheight}>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                Price : $49 per
-                                </Typography>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                month
-                                </Typography>
-                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
-                                advance
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . $49/month
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . Ability to ad  only title and description
-                                </Typography>
-                                </div>
-                                        </Card>
-                               
-                                      </div>
-                                    <div  className="serviceroot1R">
-                                        <Card>
-                                            <Typography  className="title1Radvance">
-                                            Selected
-                                            </Typography>
-                                            </Card>
-                                    
-                                    </div>
-                             </div> 
-                
-                              </div>
-                              <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
-                                >
-                 
-                                 <div className="servicerootR">
-                                 <Card>
-                                 <div className={classes.widthheight}>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                Price : $49 per
-                                </Typography>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                month
-                                </Typography>
-                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
-                                basic
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . $49/month
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . Ability to ad  only title and description
-                                </Typography>
-                                </div>
-                                        </Card>
-                               
-                                 </div>
-                                    <div  className="serviceroot1R">
-                                        <Card>
-                                            <Typography  className="title1R">
-                                            ADD TO CART
-                                            </Typography>
-                                            </Card>
-                                    
-                                    </div>
-                             </div> 
-                
-                              </div>
-                            </div>
-                            :     <div className="rowReg">
-                            <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
-                                     >
-                 
-                                   <div className="servicerootR">
-                                   <Card>
-                                   <div className={classes.widthheight}>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                Price : $49 per
-                                </Typography>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                month
-                                </Typography>
-                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
-                                advance
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . $49/month
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . Ability to ad  only title and description
-                                </Typography>
-                                </div>
-                                        </Card>
-                               
-                                      </div>
-                                    <div  className="serviceroot1R">
-                                        <Card>
-                                            <Typography  className="title1R">
-                                            ADD TO CART
-                                            </Typography>
-                                            </Card>
-                                    
-                                    </div>
-                             </div> 
-                
-                              </div>
-                              <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
-                                >
-                 
-                                 <div className="servicerootR">
-                                 <Card>
-                                 <div className={classes.widthheight}>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                Price : $49 per
-                                </Typography>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                month
-                                </Typography>
-                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
-                                basic
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . $49/month
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . Ability to ad  only title and description
-                                </Typography>
-                                </div>
-                                        </Card>
-                               
-                                 </div>
-                                    <div  className="serviceroot1R">
-                                        <Card>
-                                            <Typography  className="title1Rbasic">
-                                            Selected
-                                            </Typography>
-                                            </Card>
-                                    
-                                    </div>
-                             </div> 
-                
-                              </div>
-                            </div>}
-
+                        </div>
+                        <div className="submitButtonReg">
+                            <Button id="subbtnReg" className="Registerbtn" onClick={e => this.Register(e)}>
+                                Register
+                            </Button>
                         </div>
 
-                 
-                   
+
+                        
+                   {this.state.showCardColor ?
+                        <div className="rowReg">
+                        <div >
+                            <div className="twocardR">
+                                 
+             
+                               <div className="servicerootR">
+                               <Card>
+                               <div className="widthheight">
+                            <Typography className="price" >
+                            Price : $49 per
+                            </Typography>
+                            <Typography className="price" >
+                            month
+                            </Typography>
+                            <Typography className="advance" >
+                            advance
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . $49/month
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . Ability to add only title and description
+                            </Typography>
+                            </div>
+                                    </Card>
+                           
+                                  </div>
+                                <div  className="serviceroot1R">
+                                    <Card >
+                                        <Typography  className="title1Radvance">
+                                        Selected
+                                        </Typography>
+                                        </Card>
+                                
+                                </div>
+                         </div> 
+            
+                          </div>
+                          <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
+                            >
+             
+                             <div className="servicerootR">
+                             <Card>
+                             <div className="widthheight">
+                            <Typography className="price" >
+                            Price : $49 per
+                            </Typography>
+                            <Typography className="price" >
+                            month
+                            </Typography>
+                            <Typography className="advance" >
+                            basic
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . $49/month
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}} >
+                            . Ability to add only title and description
+                            </Typography>
+                            </div>
+                                    </Card>
+                           
+                             </div>
+                                <div  className="serviceroot1R">
+                                    <Card>
+                                        <Typography  className="title1R">
+                                        ADD TO CART
+                                        </Typography>
+                                        </Card>
+                                
+                                </div>
+                         </div> 
+            
+                          </div>
+                        </div>
+                        :     <div className="rowReg">
+                        <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
+                                 >
+             
+                               <div className="servicerootR">
+                               <Card>
+                               <div className="widthheight">
+                            <Typography className="price">
+                            Price : $99 per
+                            </Typography>
+                            <Typography className="price" >
+                            month
+                            </Typography>
+                            <Typography className="advance" >
+                            advance
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . $99/month
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . Ability to ad  only title and description
+                            </Typography>
+                            </div>
+                                    </Card>
+                           
+                                  </div>
+                                <div  className="serviceroot1R">
+                                    <Card>
+                                        <Typography  className="title1R">
+                                        ADD TO CART
+                                        </Typography>
+                                        </Card>
+                                
+                                </div>
+                         </div> 
+            
+                          </div>
+                          <div >
+                              <div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}>
+                            
+             
+                             <div className="servicerootR">
+                             <Card className="servicerootR">
+                             <div className="widthheight">
+                            <Typography className="price" >
+                            Price : $49 per
+                            </Typography>
+                            <Typography className="price" >
+                            month
+                            </Typography>
+                            <Typography className="advance" >
+                            basic
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . $49/month
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . Ability to add only title and description
+                            </Typography>
+                            </div>
+                                    </Card>
+                           
+                             </div>
+                                <div  className="serviceroot1R">
+                                    <Card>
+                                        <Typography  className="title1Rbasic">
+                                        Selected
+                                        </Typography>
+                                        </Card>
+                                
+                                </div>
+                         </div> 
+                         
+            
+                          </div>
+                        </div>}
+
                     </div>
 
-                   
-                </Paper>
-                <Snackbar open={this.state.snackbaropen} autoHideDuration={6000} onClose={this.handleClose}
-                    message={<span>{this.state.snackbarmsg}</span>}
-                    action={[
-                        <IconButton key="close" arial-label="close" color="inherit" onClick={this.handleClose}>
-                            x</IconButton>
-                    ]}>
-                </Snackbar>
-            </div>
+             
+               
+                {/* </div> */}
+
+               
+            </Paper>
+            <Snackbar open={this.state.snackbaropen} autoHideDuration={6000} onClose={this.handleClose}
+                message={<span>{this.state.snackbarmsg}</span>}
+                action={[
+                    <IconButton key="close" arial-label="close" color="inherit" onClick={this.handleClose}>
+                        x</IconButton>
+                ]}>
+            </Snackbar>
+        </div>
         );
     }
 }

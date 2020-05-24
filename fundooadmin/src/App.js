@@ -11,6 +11,8 @@ import ResetPassword from './components/ResetPassword';
 import service from './components/service';
 import QuestionAnswer from './components/QuestionAnswer';
 import CartApproval from './components/CartApproval';
+import FullWidthTabs from './components/Tabs';
+
 let token =  window.location.href.split('/' )[4];
 let resetpassword="/resetpassword/"+token
 console.log(token);
@@ -28,6 +30,8 @@ function App() {
         <Route path="/cartApproval" component={CartApproval} />
         <Route path="/questionAnswer" component={QuestionAnswer} />
         <Route path={resetpassword} component={ResetPassword} />
+        <Route path="/tabs"  component={FullWidthTabs} />    
+
 
 
       </Switch>

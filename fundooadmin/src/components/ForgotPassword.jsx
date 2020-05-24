@@ -43,7 +43,7 @@ class ForgotPassword extends Component {
           email: this.state.email,
         };
         console.log(data);
-        if(this.state.error == false){
+        if(this.state.helperTextEmail === ""){
             forgotpassword(data).then(response => {
                 console.log(response);
                if (response.status === 200) {

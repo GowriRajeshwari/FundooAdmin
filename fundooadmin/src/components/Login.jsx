@@ -113,7 +113,7 @@ class Login extends Component {
       };
 
       console.log(data);
-    if( data.email && data.password != ''){
+    if( this.state.helperTextEmail && this.state.helperTextpassowrd != ''){
         
       login(data).then(response => {
           console.log(response);
@@ -166,7 +166,7 @@ class Login extends Component {
         this.setState({
               helperTextpassowrd: "Min 8 char, at least 1 letter,1 no & 1 spl char",
               error: true,
-              password: this.state.password
+              password: ''
           })
       }
     }else if(this.state.password == ''){
@@ -273,155 +273,158 @@ onchangePassword = event => {
             </div>
             <div style={{flexDirection:'column', backgroundColor : '#D3D3D3',height : '400px',display:'flex',justifyContent:'center',alignItems:'center'}}>
               <div>SERVICE</div>
-            {this.state.showCardColor ?
-                            <div className="rowReg">
-                            <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
-                                     >
-                 
-                                   <div className="servicerootR">
-                                   <Card>
-                                   <div className={classes.widthheight}>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                Price : $49 per
-                                </Typography>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                month
-                                </Typography>
-                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
-                                advance
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . $49/month
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . Ability to ad  only title and description
-                                </Typography>
-                                </div>
-                                        </Card>
-                               
-                                      </div>
-                                    <div  className="serviceroot1R">
-                                        <Card>
-                                            <Typography  className="title1Radvance">
-                                            Selected
-                                            </Typography>
-                                            </Card>
-                                    
-                                    </div>
-                             </div> 
-                
-                              </div>
-                              <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
-                                >
-                 
-                                 <div className="servicerootR">
-                                 <Card>
-                                 <div className={classes.widthheight}>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                Price : $49 per
-                                </Typography>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                month
-                                </Typography>
-                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
-                                basic
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . $49/month
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . Ability to ad  only title and description
-                                </Typography>
-                                </div>
-                                        </Card>
-                               
-                                 </div>
-                                    <div  className="serviceroot1R">
-                                        <Card>
-                                            <Typography  className="title1R">
-                                            ADD TO CART
-                                            </Typography>
-                                            </Card>
-                                    
-                                    </div>
-                             </div> 
-                
-                              </div>
+              {this.state.showCardColor ?
+                        <div className="rowReg">
+                        <div >
+                            <div className="twocardR">
+                                 
+             
+                               <div className="servicerootR">
+                               <Card>
+                               <div className="widthheight">
+                            <Typography className="price" >
+                            Price : $49 per
+                            </Typography>
+                            <Typography className="price" >
+                            month
+                            </Typography>
+                            <Typography className="advance" >
+                            advance
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . $49/month
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . Ability to add only title and description
+                            </Typography>
                             </div>
-                            :     <div className="rowReg">
-                            <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
-                                     >
-                 
-                                   <div className="servicerootR">
-                                   <Card>
-                                   <div className={classes.widthheight}>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                Price : $49 per
-                                </Typography>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                month
-                                </Typography>
-                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
-                                advance
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . $49/month
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . Ability to ad  only title and description
-                                </Typography>
-                                </div>
+                                    </Card>
+                           
+                                  </div>
+                                <div  className="serviceroot1R">
+                                    <Card >
+                                        <Typography  className="title1Radvance">
+                                        Selected
+                                        </Typography>
                                         </Card>
-                               
-                                      </div>
-                                    <div  className="serviceroot1R">
-                                        <Card>
-                                            <Typography  className="title1R">
-                                            ADD TO CART
-                                            </Typography>
-                                            </Card>
-                                    
-                                    </div>
-                             </div> 
-                
-                              </div>
-                              <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
-                                >
-                 
-                                 <div className="servicerootR">
-                                 <Card>
-                                 <div className={classes.widthheight}>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                Price : $49 per
-                                </Typography>
-                                <Typography className={classes.price} color="textSecondary" gutterBottom>
-                                month
-                                </Typography>
-                                <Typography className={classes.advance} color="textSecondary" gutterBottom>
-                                basic
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . $49/month
-                                </Typography>
-                                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                . Ability to ad  only title and description
-                                </Typography>
+                                
                                 </div>
+                         </div> 
+            
+                          </div>
+                          <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
+                            >
+             
+                             <div className="servicerootR">
+                             <Card>
+                             <div className="widthheight">
+                            <Typography className="price" >
+                            Price : $49 per
+                            </Typography>
+                            <Typography className="price" >
+                            month
+                            </Typography>
+                            <Typography className="advance" >
+                            basic
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . $49/month
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}} >
+                            . Ability to add only title and description
+                            </Typography>
+                            </div>
+                                    </Card>
+                           
+                             </div>
+                                <div  className="serviceroot1R">
+                                    <Card>
+                                        <Typography  className="title1R">
+                                        ADD TO CART
+                                        </Typography>
                                         </Card>
-                               
-                                 </div>
-                                    <div  className="serviceroot1R">
-                                        <Card>
-                                            <Typography  className="title1Rbasic">
-                                            Selected
-                                            </Typography>
-                                            </Card>
-                                    
-                                    </div>
-                             </div> 
-                
-                              </div>
-                            </div>}
+                                
+                                </div>
+                         </div> 
+            
+                          </div>
+                        </div>
+                        :     <div className="rowReg">
+                        <div ><div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}
+                                 >
+             
+                               <div className="servicerootR">
+                               <Card>
+                               <div className="widthheight">
+                            <Typography className="price">
+                            Price : $99 per
+                            </Typography>
+                            <Typography className="price" >
+                            month
+                            </Typography>
+                            <Typography className="advance" >
+                            advance
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . $99/month
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . Ability to ad  only title and description
+                            </Typography>
+                            </div>
+                                    </Card>
+                           
+                                  </div>
+                                <div  className="serviceroot1R">
+                                    <Card>
+                                        <Typography  className="title1R">
+                                        ADD TO CART
+                                        </Typography>
+                                        </Card>
+                                
+                                </div>
+                         </div> 
+            
+                          </div>
+                          <div >
+                              <div className="twocardR" onMouseMove={this._onMouseMove1} onMouseOut={this._onMouseOut1}>
+                            
+             
+                             <div className="servicerootR">
+                             <Card>
+                             <div className="widthheight">
+                            <Typography className="price" >
+                            Price : $49 per
+                            </Typography>
+                            <Typography className="price" >
+                            month
+                            </Typography>
+                            <Typography className="advance" >
+                            basic
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . $49/month
+                            </Typography>
+                            <Typography className="title" style={{fontSize : "14px"}}>
+                            . Ability to add only title and description
+                            </Typography>
+                            </div>
+                                    </Card>
+                           
+                             </div>
+                                <div  className="serviceroot1R">
+                                    <Card>
+                                        <Typography  className="title1Rbasic">
+                                        Selected
+                                        </Typography>
+                                        </Card>
+                                
+                                </div>
+                         </div> 
+                         
+            
+                          </div>
+                        </div>}
 
             </div>
           </div>

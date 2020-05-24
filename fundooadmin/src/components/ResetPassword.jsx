@@ -42,7 +42,7 @@ class ResetPassword extends Component {
         const id = localStorage.getItem("id");
         console.log(data,id);
 
-        if (data.newPassword != '' ) {
+        if (this.state.helperTextpassowrd  && this.state.helperTextCpassowrd != '' ) {
           if(this.state.pass == true){
             resetPassword(data,id).then(response => {
                 console.log(response);
@@ -117,19 +117,22 @@ onchangePasswordagain =  event => {
   })
 }
 
-checkPassword=()=>{
-  if (this.state.password === this.state.confirmpassword) {
-    this.setState({ snackbaropen: true, snackbarmsg: 'Password changed',pass:true });
-    this.setState({ confirmpassword: this.state.confirmpassword , helperTextpassowrd: "",
-        error: false})
-  } else {
-    this.setState({
-      snackbaropen: true,
-      snackbarmsg: 'enter same password',
-      pass : false
-    })
-  }
-}
+
+  checkPassword () {
+    if (this.state.password === this.state.confirmpassword) {
+        // this.setState({ snackbaropen: true, snackbarmsg: 'Password changed',pass:true });
+        this.setState({ confirmpassword: this.state.confirmpassword , helperTextCpassowrd: "",
+            error: false})
+      } else {
+        this.setState({
+            confirmpassword: this.state.confirmpassword , helperTextCpassowrd: "Password should be equal",
+            error: false,
+        //   snackbaropen: true,
+        //   snackbarmsg: 'enter same password',
+        //   pass : false
+        })
+      }
+    }
   render() {
     return (
       <div className="firstcontainerReset">

@@ -106,7 +106,7 @@ close=()=>{
           <div className="rowWise">
             <div>
             <div className="stylefont1">
-              Question & Answer
+              Cart Details
               </div>
             </div>
             <div className="widthApproval">
