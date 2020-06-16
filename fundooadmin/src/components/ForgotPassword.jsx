@@ -35,9 +35,9 @@ class ForgotPassword extends Component {
     }
 
     //Send Button
-    forgotButton=async(event)=>{
+    forgotButton=(event)=>{
         event.preventDefault();
-        await this.validator();
+         this.validator();
         console.log("forgot button is clicked");
         let data = {
           email: this.state.email,

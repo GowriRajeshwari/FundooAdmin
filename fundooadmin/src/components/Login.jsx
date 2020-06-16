@@ -103,9 +103,9 @@ class Login extends Component {
       this.setState({ snackbaropen: false });
   }
   //sign in
-  SignIn=async(event)=>{
+  SignIn=(event)=>{
     event.preventDefault();
-    await this.validator();
+     this.validator();
       console.log("login clicked");
       let data = {
         email: this.state.email,
@@ -113,7 +113,7 @@ class Login extends Component {
       };
 
       console.log(data);
-    if( this.state.helperTextEmail && this.state.helperTextpassowrd != ''){
+    if( this.state.helperTextEmail === '' && this.state.helperTextpassowrd === ''){
         
       login(data).then(response => {
           console.log(response);

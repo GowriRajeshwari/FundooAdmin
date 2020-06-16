@@ -106,8 +106,8 @@ class Register extends Component {
       }
 
     //Register Button
-    Register = async(event) => {
-        await this.validator();
+    Register = (event) => {
+         this.validator();
         event.preventDefault();
         console.log("register clicked");
         let data = {
@@ -121,9 +121,8 @@ class Register extends Component {
         };
         console.log(data);
 
-
-        if(this.state.helperTextEmail && this.state.helpTextFN  && this.state.helpTextLN && this.state.helperTextCountry && 
-            this.state.helperTextpassowrd  && this.state.helperTextCpassowrd=== '' ){
+        if(this.state.helperTextEmail == ""  && this.state.helpTextFN == ""  && this.state.helpTextLN == ""  && this.state.helperTextCountry == ""  && 
+            this.state.helperTextpassowrd == ""  && this.state.helperTextCpassowrd == ""  ){
             register(data).then(response => {
                 console.log(response);
                if (response.status === 200) {
@@ -297,9 +296,9 @@ class Register extends Component {
           this.setState({ password: event.target.value })
       }
     
-      onchangePasswordagain = async event => {
+      onchangePasswordagain =  event => {
 
-        await this.setState({
+         this.setState({
           confirmpassword: event.target.value
         })
         // this.checkPassword()
@@ -523,7 +522,7 @@ class Register extends Component {
                                  >
              
                                <div className="servicerootR">
-                               <Card>
+                               <Card className="servicerootR">
                                <div className="widthheight">
                             <Typography className="price">
                             Price : $99 per

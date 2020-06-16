@@ -37,7 +37,7 @@ class CartApproval extends Component {
   }
   componentDidMount=()=>{
     userCartList().then(response => {
-        console.log( response.data.data)
+        // console.log( response.data.data)
        
 
        if (response.status === 200) {

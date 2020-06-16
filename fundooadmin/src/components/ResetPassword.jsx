@@ -32,9 +32,9 @@ class ResetPassword extends Component {
     };
 
   }
- Reset=async(event)=>{
+ Reset=(event)=>{
     event.preventDefault();
-        await this.validator();
+         this.validator();
         let data = {
           newPassword: this.state.password,
         };
@@ -42,7 +42,7 @@ class ResetPassword extends Component {
         const id = localStorage.getItem("id");
         console.log(data,id);
 
-        if (this.state.helperTextpassowrd  && this.state.helperTextCpassowrd != '' ) {
+        if (this.state.helperTextpassowrd === '' && this.state.helperTextCpassowrd === '' ) {
           if(this.state.pass == true){
             resetPassword(data,id).then(response => {
                 console.log(response);

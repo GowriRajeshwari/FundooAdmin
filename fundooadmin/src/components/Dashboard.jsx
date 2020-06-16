@@ -159,8 +159,8 @@ class Dashboard extends Component {
       return <CartApproval query={this.state.query} />
     }
   }
-  queryfunction = async (event) => {
-    await this.setState({ query: event.target.value });
+  queryfunction =  (event) => {
+     this.setState({ query: event.target.value });
     //  <Tableadmin query={this.state.query}/>
   }
   details = (details) => {
