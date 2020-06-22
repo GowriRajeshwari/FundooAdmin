@@ -13,7 +13,7 @@ import Modal from "@material-ui/core/Modal";
 import Snackbar from "@material-ui/core/Snackbar";
 import { IconButton } from "@material-ui/core";
 import Dialog from "@material-ui/core/Dialog";
-import FullWidthTabs from "./Tabs";
+import FullWidthTabs from "./tabs";
 
 const drawerWidth = 240;
 
