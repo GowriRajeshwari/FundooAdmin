@@ -122,7 +122,7 @@ class QuestionAnswer extends Component {
                           this.acceptQuestion(data.id, data.message)
                         }
                       >
-                        <div style={{ padding: "2px" }}>Accept</div>
+                        <div className="paddingStyle">Accept</div>
                       </div>
                     )}
                     {data.isCanceled ? (
@@ -136,7 +136,7 @@ class QuestionAnswer extends Component {
                           this.rejectQuestion(data.id, data.message)
                         }
                       >
-                        <div style={{ padding: "2px" }}>Reject</div>
+                        <div className="paddingStyle">Reject</div>
                       </div>
                     )}
                   </div>

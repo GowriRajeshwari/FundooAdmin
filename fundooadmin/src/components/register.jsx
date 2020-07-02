@@ -448,16 +448,10 @@ class Register extends Component {
                           </Typography>
                           <Typography className="price">month</Typography>
                           <Typography className="advance">advance</Typography>
-                          <Typography
-                            className="title"
-                            style={{ fontSize: "14px" }}
-                          >
+                          <Typography className="fontStyle">
                             . $49/month
                           </Typography>
-                          <Typography
-                            className="title"
-                            style={{ fontSize: "14px" }}
-                          >
+                          <Typography className="fontStyle">
                             . Ability to add only title and description
                           </Typography>
                         </div>
@@ -486,16 +480,10 @@ class Register extends Component {
                           </Typography>
                           <Typography className="price">month</Typography>
                           <Typography className="advance">basic</Typography>
-                          <Typography
-                            className="title"
-                            style={{ fontSize: "14px" }}
-                          >
+                          <Typography className="fontStyle">
                             . $49/month
                           </Typography>
-                          <Typography
-                            className="title"
-                            style={{ fontSize: "14px" }}
-                          >
+                          <Typography className="fontStyle">
                             . Ability to add only title and description
                           </Typography>
                         </div>
@@ -525,16 +513,10 @@ class Register extends Component {
                           </Typography>
                           <Typography className="price">month</Typography>
                           <Typography className="advance">advance</Typography>
-                          <Typography
-                            className="title"
-                            style={{ fontSize: "14px" }}
-                          >
+                          <Typography className="fontStyle">
                             . $99/month
                           </Typography>
-                          <Typography
-                            className="title"
-                            style={{ fontSize: "14px" }}
-                          >
+                          <Typography className="fontStyle">
                             . Ability to ad only title and description
                           </Typography>
                         </div>
@@ -561,16 +543,10 @@ class Register extends Component {
                           </Typography>
                           <Typography className="price">month</Typography>
                           <Typography className="advance">basic</Typography>
-                          <Typography
-                            className="title"
-                            style={{ fontSize: "14px" }}
-                          >
+                          <Typography className="fontStyle">
                             . $49/month
                           </Typography>
-                          <Typography
-                            className="title"
-                            style={{ fontSize: "14px" }}
-                          >
+                          <Typography className="fontStyle">
                             . Ability to add only title and description
                           </Typography>
                         </div>

@@ -162,8 +162,8 @@ class Dashboard extends Component {
             [classes.appBarShift]: this.state.open,
           })}
         >
-          <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
-            <div style={{ display: "flex", flexDirection: "row" }}>
+          <Toolbar className="toolContainer">
+            <div className="rowStyle">
               <div className={classes.bulbImg} className="bulbicon">
                 <img src={keepBulb} className="bulbIcon" />
               </div>
@@ -186,30 +186,30 @@ class Dashboard extends Component {
               </div>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "row" }}>
+            <div className="rowStyle">
               <IconButton
                 class="tooltip"
-                style={{ color: "black", cursor: "pointer", border: "none" }}
+                className="iconButton"
                 onClick={() => this.handleButton("Cart")}
               >
-                <ShoppingCartIcon style={{ opacity: "0.7" }} />
+                <ShoppingCartIcon className="opacity" />
                 <span class="tooltiptext">Cart Approval</span>
               </IconButton>
 
               <IconButton
                 class="tooltip"
-                style={{ color: "black", cursor: "pointer", border: "none" }}
+                className="iconButton"
                 onClick={() => this.handleButton("Admin")}
               >
-                <HowToRegIcon style={{ opacity: "0.7" }} />
+                <HowToRegIcon className="opacity" />
                 <span class="tooltiptext">User Details</span>
               </IconButton>
               <IconButton
                 class="tooltip"
-                style={{ color: "black", cursor: "pointer", border: "none" }}
+                className="iconButton"
                 onClick={() => this.handleButton("QA")}
               >
-                <QuestionAnswerIcon style={{ opacity: "0.7" }} />
+                <QuestionAnswerIcon className="opacity" />
                 <span class="tooltiptext">Answer Approval</span>
               </IconButton>
             </div>
@@ -276,9 +276,7 @@ class Dashboard extends Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          <List style={{ maxHeight: "100%", overflow: "auto", padding: "5px" }}>
-            {this.getcomponents()}
-          </List>
+          <List className="listStyle">{this.getcomponents()}</List>
         </main>
       </div>
     );

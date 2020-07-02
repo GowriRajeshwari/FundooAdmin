@@ -32,6 +32,9 @@ body {
   color: white;
   font-family: lato;
 }
+.paddingStyle {
+  padding: 2px;
+}
 .canceled {
   background-color: red;
   color: white;

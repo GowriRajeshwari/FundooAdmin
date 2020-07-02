@@ -25,11 +25,7 @@ const useStyles = (theme) => ({
     margin: "0 2px",
     transform: "scale(0.8)",
   },
-  title: {
-    //   fontSize: 14,
-    //   width : '250px',
-    //   height : '250px'
-  },
+  title: {},
   widthheight: {
     width: "250px",
     height: "250px",
@@ -78,7 +74,7 @@ const useStyles = (theme) => ({
     display: "flex",
     justifyContent: "center",
     color: "blue",
-    // marginTop : '10px'
+    cursor: "pointer",
   },
 });
 
@@ -299,11 +295,7 @@ class Service extends Component {
           ></Snackbar>
         </div>
 
-        <Typography
-          style={{ cursor: "pointer" }}
-          className={classes.signin}
-          onClick={(e) => this.signin(e)}
-        >
+        <Typography className={classes.signin} onClick={(e) => this.signin(e)}>
           Sign In Instead
         </Typography>
 

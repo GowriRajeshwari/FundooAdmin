@@ -287,16 +287,7 @@ class Login extends Component {
                   </div>
                 </div>
               </div>
-              <div
-                style={{
-                  flexDirection: "column",
-                  backgroundColor: "#D3D3D3",
-                  height: "400px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
+              <div className="serviceContainer">
                 <div>SERVICE</div>
                 {this.state.showCardColor ? (
                   <div className="rowReg">
@@ -312,16 +303,10 @@ class Login extends Component {
                               <Typography className="advance">
                                 advance
                               </Typography>
-                              <Typography
-                                className="title"
-                                style={{ fontSize: "14px" }}
-                              >
+                              <Typography className="fontStyle">
                                 . $49/month
                               </Typography>
-                              <Typography
-                                className="title"
-                                style={{ fontSize: "14px" }}
-                              >
+                              <Typography className="fontStyle">
                                 . Ability to add only title and description
                               </Typography>
                             </div>
@@ -350,16 +335,10 @@ class Login extends Component {
                               </Typography>
                               <Typography className="price">month</Typography>
                               <Typography className="advance">basic</Typography>
-                              <Typography
-                                className="title"
-                                style={{ fontSize: "14px" }}
-                              >
+                              <Typography className="fontStyle">
                                 . $49/month
                               </Typography>
-                              <Typography
-                                className="title"
-                                style={{ fontSize: "14px" }}
-                              >
+                              <Typography className="fontStyle">
                                 . Ability to add only title and description
                               </Typography>
                             </div>
@@ -393,16 +372,10 @@ class Login extends Component {
                               <Typography className="advance">
                                 advance
                               </Typography>
-                              <Typography
-                                className="title"
-                                style={{ fontSize: "14px" }}
-                              >
+                              <Typography className="fontStyle">
                                 . $99/month
                               </Typography>
-                              <Typography
-                                className="title"
-                                style={{ fontSize: "14px" }}
-                              >
+                              <Typography className="fontStyle">
                                 . Ability to ad only title and description
                               </Typography>
                             </div>
@@ -431,16 +404,10 @@ class Login extends Component {
                               </Typography>
                               <Typography className="price">month</Typography>
                               <Typography className="advance">basic</Typography>
-                              <Typography
-                                className="title"
-                                style={{ fontSize: "14px" }}
-                              >
+                              <Typography className="fontStyle">
                                 . $49/month
                               </Typography>
-                              <Typography
-                                className="title"
-                                style={{ fontSize: "14px" }}
-                              >
+                              <Typography className="fontStyle">
                                 . Ability to add only title and description
                               </Typography>
                             </div>

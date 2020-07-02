@@ -150,7 +150,7 @@ class CartApproval extends Component {
                         className="approved1"
                         onClick={() => this.acceptQuestion(data.id)}
                       >
-                        <div style={{ padding: "2px" }}>Accept</div>
+                        <div className="paddingStyle">Accept</div>
                       </div>
                     )}
                     {data.isCanceled ? (
@@ -162,7 +162,7 @@ class CartApproval extends Component {
                         className="canceled1"
                         onClick={() => this.rejectQuestion(data.id)}
                       >
-                        <div style={{ padding: "2px" }}>Reject</div>
+                        <div className="paddingStyle">Reject</div>
                       </div>
                     )}
                   </div>
