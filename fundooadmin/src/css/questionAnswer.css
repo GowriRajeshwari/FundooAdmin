@@ -1,0 +1,109 @@
+body {
+  font-weight: 500;
+  font-family: lato;
+}
+.detailcontainer2 {
+  width: 80%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.stylefont {
+  font-family: lato;
+  font-size: 18px;
+}
+.questionPart {
+  width: 87%;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+}
+.approved {
+  background-color: chartreuse;
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 2px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #1189de;
+  color: white;
+  font-family: lato;
+}
+.canceled {
+  background-color: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 2px;
+  border-radius: 5px;
+  font-family: lato;
+  font-size: 16px;
+  background-color: #1189de;
+  color: white;
+}
+.approved1 {
+  font-family: lato;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 2px;
+  border-radius: 5px;
+  font-family: lato;
+  font-size: 16px;
+  background-color: #1189de;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.canceled1 {
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 2px;
+  border-radius: 5px;
+  font-family: lato;
+  font-size: 16px;
+  background-color: #ec082e;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.alignItemCenter {
+  display: flex;
+  align-items: center;
+}
+.End {
+  display: flex;
+  justify-content: flex-end;
+}
+.rowWise {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  min-width: 50%;
+}
+.widthApproval {
+  margin-right: 30px;
+}
+.stylefont1 {
+  font-family: lato;
+  font-size: 18px;
+  font-weight: bold;
+}
