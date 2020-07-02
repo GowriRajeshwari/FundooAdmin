@@ -1,15 +1,17 @@
 import React, { Component } from "react";
-import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import {
+  Paper,
+  Button,
+  TextField,
+  IconButton,
+  Card,
+  Typography,
+  Snackbar,
+} from "@material-ui/core";
 import profile from "../assets/profile.png";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { login } from "../services/LoginService";
-import Snackbar from "@material-ui/core/Snackbar";
-import { IconButton } from "@material-ui/core";
-import Card from "@material-ui/core/Card";
+import { login } from "../services/loginService";
 import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 require("dotenv").config();
 
 const useStyles = (theme) => ({
@@ -49,8 +51,6 @@ const useStyles = (theme) => ({
   },
   title: {
     fontSize: 13,
-    //   width : '250px',
-    //   height : '250px'
   },
   widthheight: {
     width: "130px",

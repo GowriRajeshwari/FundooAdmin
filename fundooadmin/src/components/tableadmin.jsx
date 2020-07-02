@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-import { getuser } from "../services/LoginService";
-import Snackbar from "@material-ui/core/Snackbar";
-import { IconButton } from "@material-ui/core";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Snackbar,
+  IconButton,
+  CircularProgress,
+} from "@material-ui/core";
+import { getuser } from "../services/loginService";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const useStyles = {

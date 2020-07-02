@@ -1,21 +1,14 @@
 import React, { Component } from "react";
-import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import profile from "../assets/profile.png";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import {
   getUnapprovalQuestion,
   AcceptQuestion,
   RejectQuestion,
-} from "../services/LoginService";
-import Snackbar from "@material-ui/core/Snackbar";
-import { IconButton } from "@material-ui/core";
+} from "../services/loginService";
+import { IconButton, Snackbar, Divider } from "@material-ui/core";
+import ClipLoader from "react-spinners/ClipLoader";
 import Card from "@material-ui/core/Card";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import ClipLoader from "react-spinners/ClipLoader";
 
 function searchigFor(query) {
   return function (search) {

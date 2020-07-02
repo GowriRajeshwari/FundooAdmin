@@ -1,19 +1,10 @@
 import React, { Component } from "react";
-import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import profile from "../assets/profile.png";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { Snackbar, IconButton } from "@material-ui/core";
 import {
   userCartList,
   adminCompleteOrder,
   adminCancelOrder,
-} from "../services/LoginService";
-import Snackbar from "@material-ui/core/Snackbar";
-import { IconButton } from "@material-ui/core";
-import Card from "@material-ui/core/Card";
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+} from "../services/loginService";
 import Divider from "@material-ui/core/Divider";
 import ClipLoader from "react-spinners/ClipLoader";
 
